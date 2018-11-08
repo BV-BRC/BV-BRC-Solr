@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="subsystem" version="1.6">
+  <fields>
+    <field name="id" type="string" indexed="true" stored="true" docValues="true"/>
+
+    <field name="genome_id" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="genome_name" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="taxon_id" type="int" indexed="true" stored="true" docValues="true"/>
+
+    <field name="feature_id" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="refseq_locus_tag" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="patric_id" type="string" indexed="true" stored="true" docValues="true"/>
+
+    <field name="gene" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="product" type="string" indexed="true" stored="true" docValues="true"/>
+
+    <field name="role_id" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="role_name" type="string" indexed="true" stored="true" docValues="true"/>
+
+    <field name="subsystem_id" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="subsystem_name" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="superclass" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="class" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="subclass" type="string" indexed="true" stored="true" docValues="true"/>
+
+    <field name="active" type="string" indexed="true" stored="true" docValues="true"/>
+
+    <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
+    <field name="_version_" type="long" indexed="true" stored="true" docValues="true"/>
+    <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
+    <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
+
+    <!-- privilege control -->
+    <field name="public" type="boolean" indexed="true" stored="true" docValues="true"/>
+    <field name="owner" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="user_read" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
+    <field name="user_write" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
+  </fields>
+
+  <uniqueKey>id</uniqueKey>
+
+  <!-- copy field for global search -->
+  <copyField source="genome_name" dest="text"/>
+  <copyField source="refseq_locus_tag" dest="text"/>
+  <copyField source="patric_id" dest="text"/>
+  <copyField source="gene" dest="text"/>
+  <copyField source="product" dest="text"/>
+  <copyField source="role_id" dest="text"/>
+  <copyField source="role_name" dest="text"/>
+  <copyField source="subsystem_id" dest="text"/>
+  <copyField source="subsystem_name" dest="text"/>
+  <copyField source="superclass" dest="text"/>
+  <copyField source="class" dest="text"/>
+  <copyField source="subclass" dest="text"/>
+
+  <!-- type definitions -->
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true" />
+  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true" />
+
+  <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+  <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+
+  <fieldType name="int" class="solr.IntPointField" docValues="true"/>
+  <fieldType name="float" class="solr.FloatPointField" docValues="true"/>
+  <fieldType name="long" class="solr.LongPointField" docValues="true"/>
+  <fieldType name="double" class="solr.DoublePointField" docValues="true"/>
+  
+  <fieldType name="pint" class="solr.IntPointField" docValues="true"/>
+  <fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
+  <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
+  <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+
+  <fieldType name="pints" class="solr.IntPointField" docValues="true" multiValued="true"/>
+  <fieldType name="pfloats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
+  <fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true"/>
+  <fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+  <fieldType name="random" class="solr.RandomSortField" indexed="true"/>
+
+  <fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+  <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+
+  <fieldType name="text_custom" class="solr.TextField" positionIncrementGap="100">
+    <analyzer type="index">
+      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="1" />
+      <filter class="solr.FlattenGraphFilterFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="0" />
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+
+  <fieldType name="string_ci" class="solr.SortableTextField" sortMissingLast="true" omitNorms="true">
+    <analyzer type="index">
+      <tokenizer class="solr.KeywordTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" stemEnglishPossessive="1" splitOnNumerics="1" splitOnCaseChange="1" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" preserveOriginal="1"/>
+      <filter class="solr.FlattenGraphFilterFactory"/>
+    </analyzer>
+
+    <analyzer type="query">
+      <tokenizer class="solr.KeywordTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" stemEnglishPossessive="1" splitOnNumerics="1" splitOnCaseChange="1" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" preserveOriginal="1"/>
+    </analyzer>
+  </fieldType>
+
+  <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+    <analyzer type="index">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+</schema>
