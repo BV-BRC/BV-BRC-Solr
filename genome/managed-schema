@@ -9,8 +9,8 @@
 
     <!-- taxonomy -->
     <field name="taxon_id" type="int" indexed="true" stored="true"/>
-    <field name="taxon_lineage_ids" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
-    <field name="taxon_lineage_names" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
+    <field name="taxon_lineage_ids" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="taxon_lineage_names" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="kingdom" type="string_ci" indexed="true" stored="true" docValues="true"/>
     <field name="phylum" type="string_ci" indexed="true" stored="true" docValues="true"/>
@@ -31,17 +31,17 @@
 
     <field name="culture_collection" type="string_ci" indexed="true" stored="true" docValues="true"/>
     <field name="type_strain" type="string_ci" indexed="true" stored="true" docValues="true"/>
-    <field name="reference_genome" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="reference_genome" type="string" indexed="true" stored="true" />
 
     <field name="completion_date" type="pdate" indexed="true" stored="true"/>
-    <field name="publication" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="publication" type="string" indexed="true" stored="true" />
 
-    <field name="bioproject_accession" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="biosample_accession" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="assembly_accession" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="sra_accession" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="ncbi_project_id" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="refseq_project_id" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="bioproject_accession" type="string" indexed="true" stored="true" />
+    <field name="biosample_accession" type="string" indexed="true" stored="true" />
+    <field name="assembly_accession" type="string" indexed="true" stored="true" />
+    <field name="sra_accession" type="string" indexed="true" stored="true" />
+    <field name="ncbi_project_id" type="string" indexed="true" stored="true" />
+    <field name="refseq_project_id" type="string" indexed="true" stored="true" />
     <field name="genbank_accessions" type="string_ci" indexed="true" stored="true" docValues="true"/>
     <field name="refseq_accessions" type="string_ci" indexed="true" stored="true" docValues="true"/>
 
@@ -57,42 +57,42 @@
     <field name="contigs" type="int" indexed="true" stored="true"/>
     <field name="genome_length" type="int" indexed="true" stored="true"/>
     <field name="gc_content" type="float" indexed="true" stored="true"/>
-    <field name="contig_l50" type="int" indexed="true" stored="true" docValues="true"/>
-    <field name="contig_n50" type="int" indexed="true" stored="true" docValues="true"/>
+    <field name="contig_l50" type="int" indexed="true" stored="true" />
+    <field name="contig_n50" type="int" indexed="true" stored="true" />
 
     <!-- annotation statistics -->
     <field name="patric_cds" type="int" indexed="true" stored="true"/>
     <field name="refseq_cds" type="int" indexed="true" stored="true"/>
 
-    <field name="trna" type="int" indexed="true" stored="true" docValues="true"/>
-    <field name="rrna" type="int" indexed="true" stored="true" docValues="true"/>
-    <field name="cds" type="int" indexed="true" stored="true" docValues="true"/>
-    <field name="cds_ratio" type="float" indexed="true" stored="true" docValues="ture"/>
-    <field name="hypothetical_cds" type="int" indexed="true" stored="true" docValues="true"/>
-    <field name="hypothetical_cds_ratio" type="float" indexed="true" stored="true" docValues="true"/>
-    <field name="partial_cds" type="int" indexed="true" stored="true" docValues="true"/>
-    <field name="partial_cds_ratio" type="float" indexed="true" stored="true" docValues="true"/>
-    <field name="plfam_cds" type="int" indexed="true" stored="true" docValues="true"/>
-    <field name="plfam_cds_ratio" type="float" indexed="true" stored="true" docValues="true"/>
-    <field name="core_families" type="int" indexed="true" stored="true" docValues="true"/>
-    <field name="core_family_ratio" type="float" indexed="true" stored="true" docValues="true"/>
-    <field name="missing_core_family_ids" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/><!-- genome_ids -->
+    <field name="trna" type="int" indexed="true" stored="true" />
+    <field name="rrna" type="int" indexed="true" stored="true" />
+    <field name="cds" type="int" indexed="true" stored="true" />
+    <field name="cds_ratio" type="float" indexed="true" stored="true" />
+    <field name="hypothetical_cds" type="int" indexed="true" stored="true" />
+    <field name="hypothetical_cds_ratio" type="float" indexed="true" stored="true" />
+    <field name="partial_cds" type="int" indexed="true" stored="true" />
+    <field name="partial_cds_ratio" type="float" indexed="true" stored="true" />
+    <field name="plfam_cds" type="int" indexed="true" stored="true" />
+    <field name="plfam_cds_ratio" type="float" indexed="true" stored="true" />
+    <field name="core_families" type="int" indexed="true" stored="true" />
+    <field name="core_family_ratio" type="float" indexed="true" stored="true" />
+    <field name="missing_core_family_ids" type="string" indexed="true" stored="true" multiValued="true"/><!-- genome_ids -->
 
     <!-- genome quality statistics -->
-    <field name="coarse_consistency" type="float" indexed="true" stored="true" docValues="true"/>
-    <field name="fine_consistency" type="float" indexed="true" stored="true" docValues="true"/>
-    <field name="checkm_completeness" type="float" indexed="true" stored="true" docValues="true"/>
-    <field name="checkm_contamination" type="float" indexed="true" stored="true" docValues="true"/>
-    <field name="genome_quality_flags" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
-    <field name="genome_quality" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="nearest_genomes" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/><!-- genome_ids -->
-    <field name="outgroup_genomes" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/><!-- genome_ids -->
+    <field name="coarse_consistency" type="float" indexed="true" stored="true" />
+    <field name="fine_consistency" type="float" indexed="true" stored="true" />
+    <field name="checkm_completeness" type="float" indexed="true" stored="true" />
+    <field name="checkm_contamination" type="float" indexed="true" stored="true" />
+    <field name="genome_quality_flags" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="genome_quality" type="string" indexed="true" stored="true" />
+    <field name="nearest_genomes" type="string" indexed="true" stored="true" multiValued="true"/><!-- genome_ids -->
+    <field name="outgroup_genomes" type="string" indexed="true" stored="true" multiValued="true"/><!-- genome_ids -->
 
     <!-- isolation metadata -->
     <field name="isolation_site" type="string_ci" indexed="true" stored="true" docValues="true"/>
     <field name="isolation_source" type="string_ci" indexed="true" stored="true" docValues="true"/>
     <field name="isolation_comments" type="string_ci" indexed="true" stored="true" docValues="true"/>
-    <field name="collection_date" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="collection_date" type="string" indexed="true" stored="true" />
     <field name="collection_year" type="int" indexed="true" stored="true"/>
 
     <field name="isolation_country" type="string_ci" indexed="true" stored="true" docValues="true"/>
@@ -139,12 +139,8 @@
     <!-- privilege control -->
     <field name="public" type="boolean" indexed="true" stored="true"/>
     <field name="owner" type="string" indexed="true" stored="true"/>
-    <field name="user_read" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
-    <field name="user_write" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
-
-    <!-- data api support -->
-    <field name="document_type" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="document_id" type="string" indexed="true" stored="true"/>
+    <field name="user_read" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="user_write" type="string" indexed="true" stored="true" multiValued="true"/>
   </fields>
 
   <uniqueKey>genome_id</uniqueKey>

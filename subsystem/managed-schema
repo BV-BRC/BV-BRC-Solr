@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="subsystem" version="1.6">
   <fields>
-    <field name="id" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="id" type="string" indexed="true" stored="true" />
 
-    <field name="genome_id" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="genome_id" type="string" indexed="true" stored="true" />
     <field name="genome_name" type="string_ci" indexed="true" stored="true" docValues="true"/>
-    <field name="taxon_id" type="int" indexed="true" stored="true" docValues="true"/>
+    <field name="taxon_id" type="int" indexed="true" stored="true" />
 
-    <field name="feature_id" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="refseq_locus_tag" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="patric_id" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="feature_id" type="string" indexed="true" stored="true" />
+    <field name="refseq_locus_tag" type="string" indexed="true" stored="true" />
+    <field name="patric_id" type="string" indexed="true" stored="true" />
 
-    <field name="gene" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="product" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="gene" type="string" indexed="true" stored="true" />
+    <field name="product" type="string" indexed="true" stored="true" />
 
-    <field name="role_id" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="role_name" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="role_id" type="string" indexed="true" stored="true" />
+    <field name="role_name" type="string" indexed="true" stored="true" />
 
-    <field name="subsystem_id" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="subsystem_name" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="superclass" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="class" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="subclass" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="subsystem_id" type="string" indexed="true" stored="true" />
+    <field name="subsystem_name" type="string" indexed="true" stored="true" />
+    <field name="superclass" type="string" indexed="true" stored="true" />
+    <field name="class" type="string" indexed="true" stored="true" />
+    <field name="subclass" type="string" indexed="true" stored="true" />
 
-    <field name="active" type="string" indexed="true" stored="true" docValues="true"/>
+    <field name="active" type="string" indexed="true" stored="true" />
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
-    <field name="_version_" type="long" indexed="true" stored="true" docValues="true"/>
+    <field name="_version_" type="long" indexed="true" stored="true" />
     <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
     <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
 
     <!-- privilege control -->
     <field name="public" type="boolean" indexed="true" stored="true" docValues="true"/>
-    <field name="owner" type="string" indexed="true" stored="true" docValues="true"/>
-    <field name="user_read" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
-    <field name="user_write" type="string" indexed="true" stored="true" docValues="true" multiValued="true"/>
+    <field name="owner" type="string" indexed="true" stored="true" />
+    <field name="user_read" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="user_write" type="string" indexed="true" stored="true" multiValued="true"/>
   </fields>
 
   <uniqueKey>id</uniqueKey>
