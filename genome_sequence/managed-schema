@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="genome_sequence" version="1.6">
   <fields>
-    <field name="genome_id" type="string" indexed="true" stored="true" />
-    <field name="genome_name" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="genome_id" type="string" indexed="true" stored="true"/>
+    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
     <field name="taxon_id" type="int" indexed="true" stored="true"/>
 
-    <field name="sequence_id" type="string" indexed="true" stored="true" />
-    <field name="p2_sequence_id" type="int" indexed="true" stored="true" /><!-- backward compatibility, sequence_info_id -->
-    <field name="accession" type="string" indexed="true" stored="true" />
+    <field name="sequence_id" type="string" indexed="true" stored="true"/>
+    <field name="p2_sequence_id" type="int" indexed="true" stored="true"/><!-- backward compatibility, sequence_info_id -->
+    <field name="accession" type="string" indexed="true" stored="true"/>
     <field name="gi" type="int" indexed="true" stored="true"/>
 
-    <field name="sequence_type" type="string_ci" indexed="true" stored="true" docValues="true"/>
-    <field name="topology" type="string_ci" indexed="true" stored="true" docValues="true"/>
-    <field name="description" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="sequence_type" type="string_ci" indexed="true" stored="true"/>
+    <field name="topology" type="string_ci" indexed="true" stored="true"/>
+    <field name="description" type="string_ci" indexed="true" stored="true"/>
 
-    <field name="chromosome" type="string_ci" indexed="true" stored="true" docValues="true"/>
-    <field name="plasmid" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="chromosome" type="string_ci" indexed="true" stored="true"/>
+    <field name="plasmid" type="string_ci" indexed="true" stored="true"/>
 
     <field name="gc_content" type="float" indexed="true" stored="true"/>
     <field name="length" type="int" indexed="true" stored="true"/>
@@ -45,8 +45,8 @@
   <copyField source="description" dest="text"/>
 
   <!-- type definitions -->
-  <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true" />
-  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true" />
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
+  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
   <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
   <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
@@ -73,13 +73,13 @@
   <fieldType name="text_custom" class="solr.TextField" positionIncrementGap="100">
     <analyzer type="index">
       <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="1" />
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="1"/>
       <filter class="solr.FlattenGraphFilterFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
     </analyzer>
     <analyzer type="query">
       <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="0" />
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="0"/>
       <filter class="solr.LowerCaseFilterFactory"/>
     </analyzer>
   </fieldType>

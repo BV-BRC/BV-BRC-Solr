@@ -3,33 +3,33 @@
   <fields>
     <field name="id" type="string" indexed="true" stored="true"/>
 
-    <field name="genome_id" type="string" indexed="true" stored="true" />
-    <field name="genome_name" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="genome_id" type="string" indexed="true" stored="true"/>
+    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
     <field name="taxon_id" type="int" indexed="true" stored="true"/>
 
-    <field name="sequence_id" type="string" indexed="true" stored="true" />
-    <field name="accession" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="sequence_id" type="string" indexed="true" stored="true"/>
+    <field name="accession" type="string_ci" indexed="true" stored="true"/>
 
-    <field name="annotation" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="annotation" type="string_ci" indexed="true" stored="true"/>
 
-    <field name="feature_id" type="string" indexed="true" stored="true" />
+    <field name="feature_id" type="string" indexed="true" stored="true"/>
     <field name="alt_locus_tag" type="string" indexed="true" stored="true"/>
     <field name="refseq_locus_tag" type="string" indexed="true" stored="true"/>
     <field name="patric_id" type="string" indexed="true" stored="true"/>
 
-    <field name="gene" type="string_ci" indexed="true" stored="true" docValues="true"/>
-    <field name="product" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="gene" type="string_ci" indexed="true" stored="true"/>
+    <field name="product" type="string_ci" indexed="true" stored="true"/>
 
-    <field name="ec_number" type="string" indexed="true" stored="true" />
-    <field name="ec_description" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="ec_number" type="string" indexed="true" stored="true"/>
+    <field name="ec_description" type="string_ci" indexed="true" stored="true"/>
 
-    <field name="pathway_id" type="string" indexed="true" stored="true" />
-    <field name="pathway_name" type="string_ci" indexed="true" stored="true" docValues="true"/>
-    <field name="pathway_class" type="string_ci" indexed="true" stored="true" docValues="true"/>
+    <field name="pathway_id" type="string" indexed="true" stored="true"/>
+    <field name="pathway_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="pathway_class" type="string_ci" indexed="true" stored="true"/>
 
     <!-- grouping for counts --> 
-    <field name="genome_ec" type="string" indexed="true" stored="true" />
-    <field name="pathway_ec" type="string" indexed="true" stored="true" />
+    <field name="genome_ec" type="string" indexed="true" stored="true"/>
+    <field name="pathway_ec" type="string" indexed="true" stored="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
@@ -60,8 +60,8 @@
   <copyField source="pathway_class" dest="text"/>
 
   <!-- type definitions -->
-  <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true" />
-  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true" />
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
+  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
   <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
   <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
@@ -88,13 +88,13 @@
   <fieldType name="text_custom" class="solr.TextField" positionIncrementGap="100">
     <analyzer type="index">
       <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="1" />
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="1"/>
       <filter class="solr.FlattenGraphFilterFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
     </analyzer>
     <analyzer type="query">
       <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="0" />
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="0"/>
       <filter class="solr.LowerCaseFilterFactory"/>
     </analyzer>
   </fieldType>
