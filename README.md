@@ -22,5 +22,12 @@ For more detail, <https://lucene.apache.org/solr/guide/7_5/configsets-api.html>
 ```
 $ curl 'http://localhost:8983/solr/admin/collections?action=CREATE&name=genome&numShards=1&replicationFactor=1&collection.configName=genome_set'
 ```
-with numShards, and replicationFactor.
+Here is some other operations,
+```
+# list collections
+$ curl 'http://localhost:8983/solr/admin/collections?action=LIST'
+
+# delete a collection
+$ curl 'http://localhost:8983/solr/admin/collections?action=DELETE&name=genome'
+```
 For more detail, refer the Collections API <https://lucene.apache.org/solr/guide/7_5/collections-api.html>
