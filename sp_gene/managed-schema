@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<schema name="subsystem" version="1.6">
+<schema name="sp_gene" version="1.6">
   <fields>
-    <field name="id" type="string" indexed="true" stored="true"/>
+    <field name="id" type="uuid" indexed="true" stored="true" required="false"/><!-- not required? -->
 
     <field name="genome_id" type="string" indexed="true" stored="true"/>
-    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="genome_name" type="string" indexed="true" stored="true"/>
     <field name="taxon_id" type="int" indexed="true" stored="true"/>
 
     <field name="feature_id" type="string" indexed="true" stored="true"/>
+    <field name="alt_locus_tag" type="string" indexed="true" stored="true"/>
     <field name="refseq_locus_tag" type="string" indexed="true" stored="true"/>
     <field name="patric_id" type="string" indexed="true" stored="true"/>
 
     <field name="gene" type="string" indexed="true" stored="true"/>
     <field name="product" type="string" indexed="true" stored="true"/>
 
-    <field name="role_id" type="string" indexed="true" stored="true"/>
-    <field name="role_name" type="string" indexed="true" stored="true"/>
+    <field name="property" type="string" indexed="true" stored="true"/>
+    <field name="source" type="string" indexed="true" stored="true"/>
+    <field name="property_source" type="string" indexed="true" stored="true"/><!-- remove ? -->
 
-    <field name="subsystem_id" type="string" indexed="true" stored="true"/>
-    <field name="subsystem_name" type="string" indexed="true" stored="true"/>
-    <field name="superclass" type="string" indexed="true" stored="true"/>
-    <field name="class" type="string" indexed="true" stored="true"/>
-    <field name="subclass" type="string" indexed="true" stored="true"/>
+    <field name="source_id" type="string" indexed="true" stored="true"/>
+    <field name="organism" type="string" indexed="true" stored="true"/>
+    <field name="function" type="string" indexed="true" stored="true"/>
+    <field name="classification" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="antibiotics_class" type="string" indexed="true" stored="true"/>
+    <field name="antibiotics" type="string" indexed="true" stored="true" multiValued="true"/>
 
-    <field name="active" type="string" indexed="true" stored="true"/>
+    <field name="pmid" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="assertion" type="string" indexed="true" stored="false"/>
+
+    <field name="query_coverage" type="int" indexed="true" stored="true"/>
+    <field name="subject_coverage" type="int" indexed="true" stored="true"/>
+    <field name="identity" type="int" indexed="true" stored="true"/>
+    <field name="e_value" type="string" indexed="true" stored="true"/>
+
+    <field name="same_species" type="int" indexed="true" stored="true"/>
+    <field name="same_genus" type="int" indexed="true" stored="true"/>
+    <field name="same_genome" type="int" indexed="true" stored="true"/>
+    <field name="evidence" type="string" indexed="true" stored="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
@@ -39,19 +53,20 @@
 
   <uniqueKey>id</uniqueKey>
 
-  <!-- copy field for global search -->
   <copyField source="genome_name" dest="text"/>
+  <copyField source="alt_locus_tag" dest="text"/>
   <copyField source="refseq_locus_tag" dest="text"/>
-  <copyField source="patric_id" dest="text"/>
   <copyField source="gene" dest="text"/>
   <copyField source="product" dest="text"/>
-  <copyField source="role_id" dest="text"/>
-  <copyField source="role_name" dest="text"/>
-  <copyField source="subsystem_id" dest="text"/>
-  <copyField source="subsystem_name" dest="text"/>
-  <copyField source="superclass" dest="text"/>
-  <copyField source="class" dest="text"/>
-  <copyField source="subclass" dest="text"/>
+  <copyField source="property" dest="text"/>
+  <copyField source="source" dest="text"/>
+  <copyField source="source_id" dest="text"/>
+  <copyField source="organism" dest="text"/>
+  <copyField source="function" dest="text"/>
+  <copyField source="classification" dest="text"/>
+  <copyField source="antibiotics_class" dest="text"/>
+  <copyField source="antibiotics" dest="text"/>
+  <copyField source="assertion" dest="text"/>
 
   <!-- type definitions -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>

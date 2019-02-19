@@ -1,57 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<schema name="subsystem" version="1.6">
+<schema name="model_template_biomass" version="1.6">
   <fields>
     <field name="id" type="string" indexed="true" stored="true"/>
-
-    <field name="genome_id" type="string" indexed="true" stored="true"/>
-    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
-    <field name="taxon_id" type="int" indexed="true" stored="true"/>
-
-    <field name="feature_id" type="string" indexed="true" stored="true"/>
-    <field name="refseq_locus_tag" type="string" indexed="true" stored="true"/>
-    <field name="patric_id" type="string" indexed="true" stored="true"/>
-
-    <field name="gene" type="string" indexed="true" stored="true"/>
-    <field name="product" type="string" indexed="true" stored="true"/>
-
-    <field name="role_id" type="string" indexed="true" stored="true"/>
-    <field name="role_name" type="string" indexed="true" stored="true"/>
-
-    <field name="subsystem_id" type="string" indexed="true" stored="true"/>
-    <field name="subsystem_name" type="string" indexed="true" stored="true"/>
-    <field name="superclass" type="string" indexed="true" stored="true"/>
-    <field name="class" type="string" indexed="true" stored="true"/>
-    <field name="subclass" type="string" indexed="true" stored="true"/>
-
-    <field name="active" type="string" indexed="true" stored="true"/>
+    <field name="name" type="string" indexed="true" stored="true"/>
+    <field name="type" type="string" indexed="true" stored="true"/>
+    <field name="other" type="boolean" indexed="true" stored="true"/>
+    <field name="dna" type="float" indexed="true" stored="true"/>
+    <field name="rna" type="float" indexed="true" stored="true"/>
+    <field name="protein" type="float" indexed="true" stored="true"/>
+    <field name="lipid" type="float" indexed="true" stored="true"/>
+    <field name="cellwall" type="float" indexed="true" stored="true"/>
+    <field name="cofactor" type="float" indexed="true" stored="true"/>
+    <field name="energy" type="float" indexed="true" stored="true"/>
+    <field name="template_id" type="string" indexed="true" stored="true"/>
+    <field name="template_name" type="string" indexed="true" stored="true"/>
+    <field name="template_modeltype" type="string" indexed="true" stored="true"/>
+    <field name="template_domain" type="string" indexed="true" stored="true"/>
+    <field name="template_version" type="string" indexed="true" stored="true"/>
+    <field name="template_is_current" type="boolean" indexed="true" stored="true"/>
+    <field name="template_owner" type="string" indexed="true" stored="true"/>
+    <field name="compartment_ids" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="compound_ids" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="compound_data" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
     <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
     <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
-
-    <!-- privilege control -->
-    <field name="public" type="boolean" indexed="true" stored="true"/>
-    <field name="owner" type="string" indexed="true" stored="true"/>
-    <field name="user_read" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="user_write" type="string" indexed="true" stored="true" multiValued="true"/>
   </fields>
 
   <uniqueKey>id</uniqueKey>
 
-  <!-- copy field for global search -->
-  <copyField source="genome_name" dest="text"/>
-  <copyField source="refseq_locus_tag" dest="text"/>
-  <copyField source="patric_id" dest="text"/>
-  <copyField source="gene" dest="text"/>
-  <copyField source="product" dest="text"/>
-  <copyField source="role_id" dest="text"/>
-  <copyField source="role_name" dest="text"/>
-  <copyField source="subsystem_id" dest="text"/>
-  <copyField source="subsystem_name" dest="text"/>
-  <copyField source="superclass" dest="text"/>
-  <copyField source="class" dest="text"/>
-  <copyField source="subclass" dest="text"/>
+  <copyField source="id" dest="text"/>
 
   <!-- type definitions -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>

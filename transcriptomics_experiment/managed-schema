@@ -1,57 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<schema name="subsystem" version="1.6">
+<schema name="transcriptomics_experiment" version="1.6">
   <fields>
-    <field name="id" type="string" indexed="true" stored="true"/>
+    <field name="eid" type="int" indexed="true" stored="true"/>
+    <field name="expid" type="int" indexed="true" stored="true"/>
 
-    <field name="genome_id" type="string" indexed="true" stored="true"/>
-    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
-    <field name="taxon_id" type="int" indexed="true" stored="true"/>
+    <field name="accession" type="string" indexed="true" stored="true"/>
 
-    <field name="feature_id" type="string" indexed="true" stored="true"/>
-    <field name="refseq_locus_tag" type="string" indexed="true" stored="true"/>
-    <field name="patric_id" type="string" indexed="true" stored="true"/>
+    <field name="institution" type="string_ci" indexed="true" stored="true"/>
+    <field name="pi" type="string_ci" indexed="true" stored="true"/>
+    <field name="author" type="string_ci" indexed="true" stored="true"/>
+    <field name="pmid" type="string" indexed="true" stored="true"/>
+    <field name="release_date" type="pdate" indexed="true" stored="true"/>
 
-    <field name="gene" type="string" indexed="true" stored="true"/>
-    <field name="product" type="string" indexed="true" stored="true"/>
+    <field name="title" type="string_ci" indexed="true" stored="true"/>
+    <field name="description" type="string_ci" indexed="true" stored="true"/>
 
-    <field name="role_id" type="string" indexed="true" stored="true"/>
-    <field name="role_name" type="string" indexed="true" stored="true"/>
+    <field name="organism" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="strain" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="mutant" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="timeseries" type="string" indexed="true" stored="true"/>
+    <field name="condition" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
-    <field name="subsystem_id" type="string" indexed="true" stored="true"/>
-    <field name="subsystem_name" type="string" indexed="true" stored="true"/>
-    <field name="superclass" type="string" indexed="true" stored="true"/>
-    <field name="class" type="string" indexed="true" stored="true"/>
-    <field name="subclass" type="string" indexed="true" stored="true"/>
+    <field name="samples" type="int" indexed="true" stored="true"/>
+    <field name="platforms" type="int" indexed="true" stored="true"/>
+    <field name="genes" type="int" indexed="true" stored="true"/>
 
-    <field name="active" type="string" indexed="true" stored="true"/>
+    <field name="genome_ids" type="string" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="additional_metadata" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
     <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
     <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
-
-    <!-- privilege control -->
-    <field name="public" type="boolean" indexed="true" stored="true"/>
-    <field name="owner" type="string" indexed="true" stored="true"/>
-    <field name="user_read" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="user_write" type="string" indexed="true" stored="true" multiValued="true"/>
   </fields>
 
-  <uniqueKey>id</uniqueKey>
+  <uniqueKey>eid</uniqueKey>
 
-  <!-- copy field for global search -->
-  <copyField source="genome_name" dest="text"/>
-  <copyField source="refseq_locus_tag" dest="text"/>
-  <copyField source="patric_id" dest="text"/>
-  <copyField source="gene" dest="text"/>
-  <copyField source="product" dest="text"/>
-  <copyField source="role_id" dest="text"/>
-  <copyField source="role_name" dest="text"/>
-  <copyField source="subsystem_id" dest="text"/>
-  <copyField source="subsystem_name" dest="text"/>
-  <copyField source="superclass" dest="text"/>
-  <copyField source="class" dest="text"/>
-  <copyField source="subclass" dest="text"/>
+  <copyField source="accession" dest="text"/>
+  <copyField source="institution" dest="text"/>
+  <copyField source="pi" dest="text"/>
+  <copyField source="author" dest="text"/>
+  <copyField source="title" dest="text"/>
+  <copyField source="description" dest="text"/>
+  <copyField source="organism" dest="text"/>
+  <copyField source="strain" dest="text"/>
+  <copyField source="mutant" dest="text"/>
+  <copyField source="timeseries" dest="text"/>
+  <copyField source="condition" dest="text"/>
+  <copyField source="additional_metadata" dest="text"/>
 
   <!-- type definitions -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>

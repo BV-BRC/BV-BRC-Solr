@@ -1,57 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<schema name="subsystem" version="1.6">
+<schema name="antibiotics" version="1.6">
   <fields>
-    <field name="id" type="string" indexed="true" stored="true"/>
+    <field name="pubchem_cid" type="int" indexed="true" stored="true"/>
+    <field name="cas_id" type="string" indexed="true" stored="true"/>
+    <field name="antibiotic_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="synonyms" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
-    <field name="genome_id" type="string" indexed="true" stored="true"/>
-    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
-    <field name="taxon_id" type="int" indexed="true" stored="true"/>
+    <field name="molecular_formula" type="string" indexed="true" stored="true"/>
+    <field name="molecular_weight" type="string" indexed="true" stored="true"/>
+    <field name="inchi_key" type="string" indexed="true" stored="true"/>
+    <field name="canonical_smiles" type="string" indexed="true" stored="true"/>
+    <field name="isomeric_smiles" type="string" indexed="true" stored="true"/>
 
-    <field name="feature_id" type="string" indexed="true" stored="true"/>
-    <field name="refseq_locus_tag" type="string" indexed="true" stored="true"/>
-    <field name="patric_id" type="string" indexed="true" stored="true"/>
-
-    <field name="gene" type="string" indexed="true" stored="true"/>
-    <field name="product" type="string" indexed="true" stored="true"/>
-
-    <field name="role_id" type="string" indexed="true" stored="true"/>
-    <field name="role_name" type="string" indexed="true" stored="true"/>
-
-    <field name="subsystem_id" type="string" indexed="true" stored="true"/>
-    <field name="subsystem_name" type="string" indexed="true" stored="true"/>
-    <field name="superclass" type="string" indexed="true" stored="true"/>
-    <field name="class" type="string" indexed="true" stored="true"/>
-    <field name="subclass" type="string" indexed="true" stored="true"/>
-
-    <field name="active" type="string" indexed="true" stored="true"/>
+    <field name="description" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="pharmacology" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="pharmacological_classes" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="mechanism_of_action" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="drugbank_interactions" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="atc_classification" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
     <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
     <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
-
-    <!-- privilege control -->
-    <field name="public" type="boolean" indexed="true" stored="true"/>
-    <field name="owner" type="string" indexed="true" stored="true"/>
-    <field name="user_read" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="user_write" type="string" indexed="true" stored="true" multiValued="true"/>
   </fields>
 
-  <uniqueKey>id</uniqueKey>
+  <uniqueKey>pubchem_cid</uniqueKey>
 
-  <!-- copy field for global search -->
-  <copyField source="genome_name" dest="text"/>
-  <copyField source="refseq_locus_tag" dest="text"/>
-  <copyField source="patric_id" dest="text"/>
-  <copyField source="gene" dest="text"/>
-  <copyField source="product" dest="text"/>
-  <copyField source="role_id" dest="text"/>
-  <copyField source="role_name" dest="text"/>
-  <copyField source="subsystem_id" dest="text"/>
-  <copyField source="subsystem_name" dest="text"/>
-  <copyField source="superclass" dest="text"/>
-  <copyField source="class" dest="text"/>
-  <copyField source="subclass" dest="text"/>
+  <copyField source="pubchem_cid" dest="text"/>
+  <copyField source="cas_id" dest="text"/>
+  <copyField source="antibiotic_name" dest="text"/>
+  <copyField source="synonyms" dest="text"/>
+
+  <copyField source="description" dest="text"/>
+  <copyField source="pharmacology" dest="text"/>
+  <copyField source="pharmacological_classes" dest="text"/>
+  <copyField source="mechanism_of_action" dest="text"/>
+  <copyField source="drugbank_interactions" dest="text"/>
+  <copyField source="atc_classification" dest="text"/>
 
   <!-- type definitions -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>

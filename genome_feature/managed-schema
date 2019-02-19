@@ -89,7 +89,7 @@
   <fieldType name="float" class="solr.FloatPointField" docValues="true"/>
   <fieldType name="long" class="solr.LongPointField" docValues="true"/>
   <fieldType name="double" class="solr.DoublePointField" docValues="true"/>
-  
+
   <fieldType name="pint" class="solr.IntPointField" docValues="true"/>
   <fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
   <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
