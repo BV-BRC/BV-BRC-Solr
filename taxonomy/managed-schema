@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="taxonomy" version="1.6">
   <fields>
-    <field name="taxon_id" type="int" indexed="true" stored="true"/>
+    <field name="taxon_id" type="string" indexed="true" stored="true"/>
+    <field name="taxon_id_i" type="int" indexed="true" stored="true"/>
     <field name="taxon_name" type="string_ci" indexed="true" stored="true"/>
     <field name="taxon_rank" type="string" indexed="true" stored="true"/>
     <field name="other_names" type="string_ci" indexed="true" stored="true" multiValued="true"/>
@@ -34,6 +35,8 @@
   </fields>
 
   <uniqueKey>taxon_id</uniqueKey>
+
+  <copyField source="taxon_id" dest="taxon_id_i"/>
 
   <copyField source="taxon_name" dest="text"/>
   <copyField source="description" dest="text"/>

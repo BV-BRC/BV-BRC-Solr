@@ -6,7 +6,8 @@
 
     <field name="accession" type="string" indexed="true" stored="true"/>
 
-    <field name="pid" type="int" indexed="true" stored="true" required="true"/>
+    <field name="pid" type="string" indexed="true" stored="true" required="true"/>
+    <field name="pid_i" type="int" indexed="true" stored="true" required="true"/>
     <field name="samples" type="string" indexed="true" stored="true"/>
 
     <field name="expname" type="string_ci" indexed="true" stored="true"/>
@@ -39,6 +40,8 @@
   </fields>
 
   <uniqueKey>pid</uniqueKey>
+
+  <copyField source="pid" dest="pid_i"/>
 
   <copyField source="accession" dest="text"/>
   <copyField source="samples" dest="text"/>

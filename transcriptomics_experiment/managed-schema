@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="transcriptomics_experiment" version="1.6">
   <fields>
-    <field name="eid" type="int" indexed="true" stored="true"/>
+    <field name="eid" type="string" indexed="true" stored="true"/>
+    <field name="eid_i" type="int" indexed="true" stored="true"/>
     <field name="expid" type="int" indexed="true" stored="true"/>
 
     <field name="accession" type="string" indexed="true" stored="true"/>
@@ -36,6 +37,8 @@
   </fields>
 
   <uniqueKey>eid</uniqueKey>
+
+  <copyField source="eid" dest="eid_i"/>
 
   <copyField source="accession" dest="text"/>
   <copyField source="institution" dest="text"/>

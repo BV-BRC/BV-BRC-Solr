@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="antibiotics" version="1.6">
   <fields>
-    <field name="pubchem_cid" type="int" indexed="true" stored="true"/>
+    <field name="pubchem_cid" type="string" indexed="true" stored="true"/>
+    <field name="pubchem_cid_i" type="int" indexed="true" stored="true"/>
+
     <field name="cas_id" type="string" indexed="true" stored="true"/>
     <field name="antibiotic_name" type="string_ci" indexed="true" stored="true"/>
     <field name="synonyms" type="string_ci" indexed="true" stored="true" multiValued="true"/>
@@ -26,6 +28,8 @@
   </fields>
 
   <uniqueKey>pubchem_cid</uniqueKey>
+
+  <copyField source="pubchem_cid" dest="pubchem_cid_i"/>
 
   <copyField source="pubchem_cid" dest="text"/>
   <copyField source="cas_id" dest="text"/>
