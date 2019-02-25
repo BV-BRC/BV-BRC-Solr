@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<schema name="misc_niaid_gsc" version="1.6">
+<schema name="misc_niaid_sgc" version="1.6">
   <fields>
     <field name="target_id" type="string" indexed="true" stored="true"/>
     <field name="target_status" type="string" indexed="true" stored="true"/>
