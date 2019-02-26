@@ -17,9 +17,8 @@
 # curl 'localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=genome_feature&shard=shard1&node=130.202.148.146:6765_solr'
 # curl 'localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=genome_feature&shard=shard2&node=130.202.148.146:5654_solr'
 
-collections=(antibiotics enzyme_class_ref feature_sequence gene_ontology_ref genome genome_amr genome_feature genome_sequence id_ref misc_niaid_sgc model_complex_role model_compound model_reaction model_template_biomass model_template_reaction pathway pathway_ref ppi protein_family_ref sp_gene sp_gene_evidence sp_gene_ref structured_assertion subsystem subsystem_ref taxonomy transcriptomics_experiment transcriptomics_gene transcriptomics_sample)
-# collections=(genome genome_feature genome_sequence feature_sequence pathway subsystem)
-# collections=(genome)
+# 16 static collections
+collections=(antibiotics enzyme_class_ref gene_ontology_ref misc_niaid_sgc model_complex_role model_compound model_reaction model_template_biomass model_template_reaction pathway_ref sp_gene_evidence sp_gene_ref subsystem_ref taxonomy transcriptomics_experiment transcriptomics_sample)
 for collection in "${collections[@]}"
 do
     # register configset
@@ -27,6 +26,21 @@ do
     curl -X POST --header 'Content-Type:application/octet-stream' --data-binary @- \
      "http://localhost:8983/solr/admin/configs?action=UPLOAD&name=${collection}_set"
     # create a collection
-    # curl "http://localhost:8983/solr/admin/collections?action=CREATE&name=${collection}&numShards=2&replicationFactor=2&tlogReplicas=1&collection.configName=${collection}_set"
-    curl "http://localhost:8983/solr/admin/collections?action=CREATE&name=${collection}&numShards=2&replicationFactor=1&collection.configName=${collection}_set"
+    curl "http://localhost:8983/solr/admin/collections?action=CREATE&name=${collection}&numShards=1&tlogReplicas=3&maxShardsPerNode=1&collection.configName=${collection}_set"
+done
+
+# setup policy
+curl "http://localhost:8983/solr/admin/autoscaling" -X POST -d '{"remove-policy": "policy1"}'
+curl "http://localhost:8983/solr/admin/autoscaling" -X POST -d @policy.input.json
+
+# 5 large static, 8 dynamic collections
+collections=(feature_sequence genome genome_amr genome_feature genome_sequence id_ref pathway ppi protein_family_ref sp_gene structured_assertion subsystem transcriptomics_gene)
+for collection in "${collections[@]}"
+do
+    # register configset
+    (cd $collection && zip -r - *) | \
+    curl -X POST --header 'Content-Type:application/octet-stream' --data-binary @- \
+     "http://localhost:8983/solr/admin/configs?action=UPLOAD&name=${collection}_set"
+    # create a collection
+    curl "http://localhost:8983/solr/admin/collections?action=CREATE&name=${collection}&numShards=3&tlogReplicas=2&maxShardsPerNode=2&collection.configName=${collection}_set&policy=policy1"
 done

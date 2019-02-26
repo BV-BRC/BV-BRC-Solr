@@ -1,0 +1,7 @@
+{
+  "set-policy": {
+    "policy1": [
+      {"replica": "<2", "shard": "#EACH", "node": "#ANY"}
+    ]
+  }
+}
