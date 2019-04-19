@@ -47,7 +47,7 @@
   <!-- type definitions -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
   <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
-  <fieldType name="string_raw" class="solr.StrField" sortMissingLast="true">
+  <fieldType name="string_raw" class="solr.StrField" sortMissingLast="true"/>
 
   <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
   <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
