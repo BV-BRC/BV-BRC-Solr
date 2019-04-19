@@ -106,18 +106,19 @@
   </requestHandler>
 
   <!-- keygen -->
-  <requestHandler name="/update" class="solr.UpdateRequestHandler">
-    <lst name="defaults">
-      <str name="update.chain">keygen</str>
-    </lst>
-  </requestHandler>
-
   <updateRequestProcessorChain name="keygen">
     <processor class="solr.UUIDUpdateProcessorFactory">
       <str name="fieldName">id</str>
     </processor>
     <processor class="solr.RunUpdateProcessorFactory"/>
   </updateRequestProcessorChain>
+
+  <requestHandler name="/update" class="solr.UpdateRequestHandler">
+    <lst name="defaults">
+      <str name="update.chain">keygen</str>
+    </lst>
+  </requestHandler>
+
 
   <initParams path="/update/**,/query,/select,/tvrh,/elevate,/spell,/browse">
     <lst name="defaults">
