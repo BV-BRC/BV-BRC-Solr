@@ -38,6 +38,7 @@
 
   <copyField source="taxon_id" dest="taxon_id_i"/>
 
+  <copyField source="taxon_id" dest="text"/>
   <copyField source="taxon_name" dest="text"/>
   <copyField source="description" dest="text"/>
 
