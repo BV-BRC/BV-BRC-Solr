@@ -1,1 +1,144 @@
-../sharedConfig/solrconfig.xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+  <luceneMatchVersion>8.0.0</luceneMatchVersion>
+
+  <lib dir="${solr.install.dir:../../../..}/contrib/extraction/lib" regex=".*\.jar" />
+  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-cell-\d.*\.jar" />
+
+  <lib dir="${solr.install.dir:../../../..}/contrib/clustering/lib/" regex=".*\.jar" />
+  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-clustering-\d.*\.jar" />
+
+  <lib dir="${solr.install.dir:../../../..}/contrib/langid/lib/" regex=".*\.jar" />
+  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-langid-\d.*\.jar" />
+
+  <lib dir="${solr.install.dir:../../../..}/contrib/velocity/lib" regex=".*\.jar" />
+  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-velocity-\d.*\.jar" />
+
+  <dataDir>${solr.data.dir:}</dataDir>
+  <directoryFactory name="DirectoryFactory"
+                    class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}"/>
+
+  <codecFactory class="solr.SchemaCodecFactory"/>
+
+  <indexConfig>
+    <lockType>${solr.lock.type:native}</lockType>
+  </indexConfig>
+
+  <jmx />
+
+  <updateHandler class="solr.DirectUpdateHandler2">
+    <updateLog>
+      <str name="dir">${solr.ulog.dir:}</str>
+      <int name="numVersionBuckets">${solr.ulog.numVersionBuckets:65536}</int>
+    </updateLog>
+
+    <autoCommit>
+      <maxTime>${solr.autoCommit.maxTime:300000}</maxTime>
+      <openSearcher>true</openSearcher>
+    </autoCommit>
+    <autoSoftCommit>
+      <maxTime>${solr.autoSoftCommit.maxTime:-1}</maxTime>
+    </autoSoftCommit>
+  </updateHandler>
+
+  <query>
+    <maxBooleanClauses>500000</maxBooleanClauses>
+    <filterCache class="solr.FastLRUCache"
+                 size="512"
+                 initialSize="512"
+                 autowarmCount="0"/>
+    <queryResultCache class="solr.LRUCache"
+                      size="512"
+                      initialSize="512"
+                      autowarmCount="0"/>
+    <documentCache class="solr.LRUCache"
+                   size="512"
+                   initialSize="512"
+                   autowarmCount="0"/>
+
+    <!-- custom cache currently used by block join -->
+    <cache name="perSegFilter"
+           class="solr.search.LRUCache"
+           size="10"
+           initialSize="0"
+           autowarmCount="10"
+           regenerator="solr.NoOpRegenerator" />
+
+    <enableLazyFieldLoading>true</enableLazyFieldLoading>
+    <!--
+       <useFilterForSortedQuery>true</useFilterForSortedQuery>
+      -->
+    <queryResultWindowSize>20</queryResultWindowSize>
+    <queryResultMaxDocsCached>200</queryResultMaxDocsCached>
+
+    <listener event="newSearcher" class="solr.QuerySenderListener">
+      <arr name="queries">
+      </arr>
+    </listener>
+    <listener event="firstSearcher" class="solr.QuerySenderListener">
+      <arr name="queries">
+      </arr>
+    </listener>
+
+    <useColdSearcher>false</useColdSearcher>
+  </query>
+
+  <requestDispatcher>
+    <httpCaching never304="true" />
+  </requestDispatcher>
+
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <int name="rows">10</int>
+      <str name="df">text</str>
+      <str name="q.op">AND</str>
+    </lst>
+  </requestHandler>
+
+  <!-- A request handler that returns indented JSON by default -->
+  <requestHandler name="/query" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <str name="wt">json</str>
+      <str name="indent">true</str>
+    </lst>
+  </requestHandler>
+
+  <!-- keygen -->
+  <updateRequestProcessorChain name="keygen">
+    <processor class="solr.UUIDUpdateProcessorFactory">
+      <str name="fieldName">sequence_id</str>
+    </processor>
+    <processor class="solr.RunUpdateProcessorFactory"/>
+  </updateRequestProcessorChain>
+
+  <requestHandler name="/update" class="solr.UpdateRequestHandler">
+    <lst name="defaults">
+      <str name="update.chain">keygen</str>
+    </lst>
+  </requestHandler>
+
+
+  <initParams path="/update/**,/query,/select,/tvrh,/elevate,/spell,/browse">
+    <lst name="defaults">
+      <str name="df">_text_</str>
+    </lst>
+  </initParams>
+
+  <!-- Solr Cell Update Request Handler
+
+       http://wiki.apache.org/solr/ExtractingRequestHandler
+
+    -->
+  <requestHandler name="/update/extract"
+                  startup="lazy"
+                  class="solr.extraction.ExtractingRequestHandler" >
+    <lst name="defaults">
+      <str name="lowernames">true</str>
+      <str name="fmap.meta">ignored_</str>
+      <str name="fmap.content">_text_</str>
+    </lst>
+  </requestHandler>
+
+</config>
