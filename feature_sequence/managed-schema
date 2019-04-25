@@ -4,7 +4,7 @@
     <field name="md5" type="string" indexed="true" stored="true"/>
     <field name="sequence_type" type="string" indexed="true" stored="true"/>
 
-    <field name="sequence" type="string" indexed="false" stored="true"/>
+    <field name="sequence" type="string_raw" indexed="false" stored="true"/>
 
     <field name="_version_" type="long" indexed="true" stored="true"/>
     <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
@@ -16,6 +16,7 @@
   <!-- type definitions -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
   <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
+  <fieldType name="string_raw" class="solr.StrField" sortMissingLast="true"/>
 
   <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
   <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
