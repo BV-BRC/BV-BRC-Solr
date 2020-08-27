@@ -6,19 +6,23 @@
     <field name="taxon_id" type="int" indexed="true" stored="true"/>
 
     <field name="sequence_id" type="string" indexed="true" stored="true"/>
-    <field name="p2_sequence_id" type="int" indexed="true" stored="true"/><!-- backward compatibility, sequence_info_id -->
+    <!--<field name="p2_sequence_id" type="int" indexed="true" stored="true"/>--><!-- deprecated -->
     <field name="accession" type="string" indexed="true" stored="true"/>
     <field name="gi" type="int" indexed="true" stored="true"/>
 
     <field name="sequence_type" type="string_ci" indexed="true" stored="true"/>
+    <field name="sequence_status" type="string" indexed="true" stored="true"/>
+    <field name="mol_type" type="string_ci" indexed="true" stored="true"/>
     <field name="topology" type="string_ci" indexed="true" stored="true"/>
     <field name="description" type="string_ci" indexed="true" stored="true"/>
 
     <field name="chromosome" type="string_ci" indexed="true" stored="true"/>
     <field name="plasmid" type="string_ci" indexed="true" stored="true"/>
+    <field name="segment" type="string_ci" indexed="true" stored="true"/>
 
     <field name="gc_content" type="float" indexed="true" stored="true"/>
     <field name="length" type="int" indexed="true" stored="true"/>
+    <field name="sequence_md5" type="string" indexed="true" stored="true"/>
     <field name="sequence" type="string_raw" indexed="false" stored="true"/><!-- -->
 
     <field name="release_date" type="pdate" indexed="true" stored="true"/>

@@ -12,20 +12,24 @@
     <field name="feature_type" type="string_ci" indexed="true" stored="true"/>
 
     <field name="feature_id" type="string" indexed="true" stored="true"/>
-    <field name="p2_feature_id" type="long" indexed="true" stored="true"/>
+    <!--<field name="p2_feature_id" type="long" indexed="true" stored="true"/>--><!-- deprecated -->
     <field name="alt_locus_tag" type="string" indexed="true" stored="true"/>
     <field name="patric_id" type="string" indexed="true" stored="true"/>
+    <field name="brc_id" type="string" indexed="true" stored="true"/>
 
     <field name="refseq_locus_tag" type="string" indexed="true" stored="true"/>
 
     <field name="protein_id" type="string" indexed="true" stored="true"/>
     <field name="gene_id" type="long" indexed="true" stored="true"/>
+    <field name="uniprotkb_accession" type="string" index="true" stored="true"/>
+    <field name="pdb_accession" type="string" index="true" stored="true" multiValued="true"/>
 
     <field name="start" type="int" indexed="true" stored="true"/>
     <field name="end" type="int" indexed="true" stored="true"/>
     <field name="strand" type="string" indexed="true" stored="true"/>
     <field name="location" type="string" indexed="true" stored="true"/>
     <field name="segments" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="codon_start" type="int" indexed="true" stored="true"/>
 
     <field name="na_length" type="int" indexed="true" stored="true"/>
     <field name="aa_length" type="int" indexed="true" stored="true"/>
@@ -35,9 +39,11 @@
     <field name="gene" type="string_ci" indexed="true" stored="true"/>
     <field name="product" type="string_ci" indexed="true" stored="true"/>
 
-    <field name="figfam_id" type="string" indexed="true" stored="true"/>
+    <!--<field name="figfam_id" type="string" indexed="true" stored="true"/>--><!-- deprecated -->
     <field name="plfam_id" type="string" indexed="true" stored="true"/>
     <field name="pgfam_id" type="string" indexed="true" stored="true"/>
+    <field name="sog_id" type="string" indexed="true" stored="true"/>
+    <field name="og_id" type="string" indexed="true" stored="true"/>
     <field name="go" type="string_ci" indexed="true" stored="true"  multiValued="true"/>
 
     <field name="property" type="string" indexed="true" stored="true" multiValued="true"/>
