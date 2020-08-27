@@ -21,8 +21,8 @@
 
     <field name="protein_id" type="string" indexed="true" stored="true"/>
     <field name="gene_id" type="long" indexed="true" stored="true"/>
-    <field name="uniprotkb_accession" type="string" index="true" stored="true"/>
-    <field name="pdb_accession" type="string" index="true" stored="true" multiValued="true"/>
+    <field name="uniprotkb_accession" type="string" indexed="true" stored="true"/>
+    <field name="pdb_accession" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="start" type="int" indexed="true" stored="true"/>
     <field name="end" type="int" indexed="true" stored="true"/>

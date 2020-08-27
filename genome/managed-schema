@@ -6,7 +6,7 @@
     <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
     <!--<field name="common_name" type="string" indexed="true" stored="true"/>--><!-- deprecated -->
     <!--<field name="organism_name" type="string_ci" indexed="true" stored="true"/>--><!-- deprecated -->
-    <field name="other_names" type="string_ci" index="true" stored="true" multiValued="true"/>
+    <field name="other_names" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <!-- taxonomy -->
     <field name="taxon_id" type="int" indexed="true" stored="true"/>
@@ -119,7 +119,7 @@
 
     <!--<field name="antimicrobial_resistance" type="string_ci" indexed="true" stored="true" multiValued="true"/>--><!-- deprecated -->
     <!--<field name="antimicrobial_resistance_evidence" type="string_ci" indexed="true" stored="true"/>--><!-- deprecated -->
-    <field name="phenotype" type="string_ci" index="true" stored="true" multiValued="true"/>
+    <field name="phenotype" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <field name="gram_stain" type="string_ci" indexed="true" stored="true"/>
     <field name="cell_shape" type="string_ci" indexed="true" stored="true"/>
