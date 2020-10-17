@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="surveillance" version="1.6">
+  <fields>
+    <field name="id" type="string" indexed="true" stored="true"/><!-- UUID -->
+
+    <field name="collection" type="string" indexed="true" stored="true"/>
+
+    <field name="collector_name" type="string" indexed="true" stored="true"/>
+    <field name="collector_institution" type="string" indexed="true" stored="true"/>
+    <field name="colection_date" type="pdate" indexed="true" stored="true"/>
+    <field name="receipt_date" type="pdate" indexed="true" stored="true"/>
+    <field name="rationale" type="string" indexed="true" stored="true"/>
+
+    <field name="city" type="string_ci" indexed="true" stored="true"/>
+    <field name="state" type="string_ci" indexed="true" stored="true"/>
+    <field name="country" type="string_ci" indexed="true" stored="true"/>
+    <field name="latitude" type="string_ci" indexed="true" stored="true"/>
+    <field name="longitude" type="string_ci" indexed="true" stored="true"/>
+
+    <field name="host_identifier" type="string" indexed="true" stored="true"/>
+    <field name="common_name" type="string" indexed="true" stored="true"/>
+    <field name="scientific_name" type="string" indexed="true" stored="true"/>
+    <field name="order" type="string" indexed="true" stored="true"/>
+    <field name="family" type="string" indexed="true" stored="true"/>
+    <field name="age_class" type="string" indexed="true" stored="true"/>
+    <field name="age" type="float" indexed="true" stored="true"/>
+    <field name="sex" type="string" indexed="true" stored="true"/>
+    <field name="health" type="string_ci" indexed="true" stored="true"/>
+    <field name="temperature" type="string" indexed="true" stored="true"/>
+    <field name="fever" type="string" indexed="true" stored="true"/>
+    <field name="symptoms" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="diagnosis" type="string_ci" indexed="true" stored="true"/>
+    <field name="behavior" type="string_ci" indexed="true" stored="true"/>
+    <field name="post_visit_medications" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="sample_id" type="string" indexed="true" stored="true"/>
+    <field name="sample_accession" type="string" indexed="true" stored="true"/>
+    <field name="sample_source" type="string" indexed="true" stored="true"/>
+    <field name="test_type" type="string" indexed="true" stored="true"/>
+    <field name="test_results" type="string" indexed="true" stored="true"/>
+    <field name="positive_flu" type="string" indexed="true" stored="true"/>
+    <field name="serotype" type="string" indexed="true" stored="true"/>
+    <field name="sero_positive_definition" type="string" indexed="true" stored="true"/>
+
+    <field name="virus_type" type="string" indexed="true" stored="true"/>
+    <field name="virus_subtype" type="string" indexed="true" stored="true"/>
+    <field name="virus_strain" type="string" indexed="true" stored="true"/>
+
+    <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
+    <field name="_version_" type="long" indexed="false" stored="false"/>
+    <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
+    <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
+  </fields>
+
+  <uniqueKey>id</uniqueKey>
+
+  <!-- copy field for global search -->
+  <copyField source="collection" dest="text"/>
+  <copyField source="collector_name" dest="text"/>
+  <copyField source="collector_institution" dest="text"/>
+  <copyField source="rationale" dest="text"/>
+  <copyField source="city" dest="text"/>
+  <copyField source="state" dest="text"/>
+  <copyField source="country" dest="text"/>
+  <copyField source="host_identifier" dest="text"/>
+  <copyField source="common_name" dest="text"/>
+  <copyField source="scientific_name" dest="text"/>
+  <copyField source="order" dest="text"/>
+  <copyField source="family" dest="text"/>
+  <copyField source="age_class" dest="text"/>
+  <copyField source="sex" dest="text"/>
+  <copyField source="health" dest="text"/>
+  <copyField source="temperature" dest="text"/>
+  <copyField source="fever" dest="text"/>
+  <copyField source="symptoms" dest="text"/>
+  <copyField source="diagnosis" dest="text"/>
+  <copyField source="behavior" dest="text"/>
+  <copyField source="post_visit_medications" dest="text"/>
+  <copyField source="sample_id" dest="text"/>
+  <copyField source="sample_accession" dest="text"/>
+  <copyField source="sample_source" dest="text"/>
+  <copyField source="test_type" dest="text"/>
+  <copyField source="test_results" dest="text"/>
+  <copyField source="serotype" dest="text"/>
+  <copyField source="virus_type" dest="text"/>
+  <copyField source="virus_subtype" dest="text"/>
+  <copyField source="virus_strain" dest="text"/>
+
+  <!-- type definitions -->
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
+  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
+
+  <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+  <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+
+  <fieldType name="int" class="solr.IntPointField" docValues="true"/>
+  <fieldType name="float" class="solr.FloatPointField" docValues="true"/>
+  <fieldType name="long" class="solr.LongPointField" docValues="true"/>
+  <fieldType name="double" class="solr.DoublePointField" docValues="true"/>
+
+  <fieldType name="pint" class="solr.IntPointField" docValues="true"/>
+  <fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
+  <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
+  <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+
+  <fieldType name="pints" class="solr.IntPointField" docValues="true" multiValued="true"/>
+  <fieldType name="pfloats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
+  <fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true"/>
+  <fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+  <fieldType name="random" class="solr.RandomSortField" indexed="true"/>
+
+  <fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+  <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+
+  <fieldType name="text_custom" class="solr.TextField" positionIncrementGap="100">
+    <analyzer type="index">
+      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="1"/>
+      <filter class="solr.FlattenGraphFilterFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="0"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+
+  <fieldType name="string_ci" class="solr.SortableTextField" sortMissingLast="true" omitNorms="true">
+    <analyzer type="index">
+      <tokenizer class="solr.KeywordTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" stemEnglishPossessive="1" splitOnNumerics="1" splitOnCaseChange="1" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" preserveOriginal="1"/>
+      <filter class="solr.FlattenGraphFilterFactory"/>
+    </analyzer>
+
+    <analyzer type="query">
+      <tokenizer class="solr.KeywordTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.WordDelimiterGraphFilterFactory" stemEnglishPossessive="1" splitOnNumerics="1" splitOnCaseChange="1" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" preserveOriginal="1"/>
+    </analyzer>
+  </fieldType>
+
+  <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+    <analyzer type="index">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+</schema>
