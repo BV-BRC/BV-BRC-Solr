@@ -29,7 +29,7 @@
     <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
   </fields>
 
-  <uniqueKey>id</uniqueKey>
+  <uniqueKey>pdb_id</uniqueKey>
 
   <!-- copy field for global search -->
   <copyField source="pdb_id" dest="text"/>

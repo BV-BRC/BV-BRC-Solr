@@ -11,7 +11,7 @@
     <field name="source_id" type="string" indexed="true" stored="true"/>
     <field name="name" type="string_ci" indexed="true" stored="true"/>
     <field name="description" type="string_ci" indexed="true" stored="true"/>
-    <field name="clasification" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="classification" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="score" type="float" indexed="true" stored="true"/>
     <field name="e_value" type="string" indexed="true" stored="true"/>
     <field name="evidence_code" type="string" indexed="true" stored="true"/>
