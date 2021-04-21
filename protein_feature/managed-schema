@@ -3,18 +3,30 @@
   <fields>
     <field name="id" type="string" indexed="true" stored="true"/><!-- UUID -->
 
-    <field name="sequence_md5" type="string" indexed="true" stored="true"/>
+    <field name="genome_id" type="string" indexed="true" stored="true"/>
+    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="taxon_id" type="int" indexed="true" stored="true"/>
+
+    <field name="feature_id" type="string" indexed="true" stored="true"/>
+    <field name="patric_id" type="string" indexed="true" stored="true"/>
+    <field name="refseq_locus_tag" type="string" indexed="true" stored="true"/>
+    <field name="aa_sequence_md5" type="string" indexed="true" stored="true"/>
+
+    <field name="gene" type="string" indexed="true" stored="true"/>
+    <field name="product" type="string_ci" indexed="true" stored="true"/>
+
+    <field name="interpro_id" type="string" indexed="true" stored="true"/>
+    <field name="interpro_description" type="string_ci" indexed="true" stored="true"/>
 
     <field name="feature_type" type="string" indexed="true" stored="true"/>
 
     <field name="source" type="string" indexed="true" stored="true"/>
     <field name="source_id" type="string" indexed="true" stored="true"/>
-    <field name="name" type="string_ci" indexed="true" stored="true"/>
     <field name="description" type="string_ci" indexed="true" stored="true"/>
     <field name="classification" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="score" type="float" indexed="true" stored="true"/>
     <field name="e_value" type="string" indexed="true" stored="true"/>
-    <field name="evidence_code" type="string" indexed="true" stored="true"/>
+    <field name="evidence" type="string" indexed="true" stored="true"/>
     <field name="publication" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="start" type="int" indexed="true" stored="true"/>
@@ -36,7 +48,6 @@
   <copyField source="feature_type" dest="text"/>
   <copyField source="source" dest="text"/>
   <copyField source="source_id" dest="text"/>
-  <copyField source="name" dest="text"/>
   <copyField source="description" dest="text"/>
   <copyField source="classification" dest="text"/>
   <copyField source="comments" dest="text"/>

@@ -9,6 +9,8 @@
     <field name="taxon_lineage_ids" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="taxon_lineage_names" type="string" indexed="true" stored="true" multiValued="true"/>
 
+    <field name="genome_id" type="string" indexed="true" stored="true"/>
+    <field name="feature_id" type="string" indexed="true" stored="true"/>
     <field name="patric_id" type="string" indexed="true" stored="true"/>
     <field name="uniprotkb_accession" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="gene" type="string" indexed="true" stored="true" multiValued="true"/>
