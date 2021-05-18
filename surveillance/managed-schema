@@ -79,12 +79,12 @@
     <field name="duration_of_human_exposure" type="string_ci" indexed="true" stored="true"/>
     <field name="use_of_personal_protective_equipment" type="string_ci" indexed="true" stored="true"/>
 
-    <field name="primary_living_situation" type="string_ci" indexex="true" stored="true"/>
-    <field name="nursing_home_residence" type="string_ci" indexex="true" stored="true"/>
-    <field name="daycare_attendance" type="string_ci" indexex="true" stored="true"/>
-    <field name="travel_history" type="string_ci" indexex="true" stored="true"/>
-    <field name="profession" type="string_ci" indexex="true" stored="true"/>
-    <field name="education" type="string_ci" indexex="true" stored="true"/>
+    <field name="primary_living_situation" type="string_ci" indexed="true" stored="true"/>
+    <field name="nursing_home_residence" type="string_ci" indexed="true" stored="true"/>
+    <field name="daycare_attendance" type="string_ci" indexed="true" stored="true"/>
+    <field name="travel_history" type="string_ci" indexed="true" stored="true"/>
+    <field name="profession" type="string_ci" indexed="true" stored="true"/>
+    <field name="education" type="string_ci" indexed="true" stored="true"/>
 
     <!-- additional data about subject -->
     <field name="pregnancy" type="string_ci" indexed="true" stored="true"/>
@@ -107,7 +107,7 @@
 
     <!-- subject's medical history -->
     <field name="chronic_conditions" type="string_ci" indexed="true" stored="true" multiValued="true"/>
-    <field name="maintenance_medication" type="string_ci" indexed="true" stored="true"/>
+    <field name="maintenance_medication" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="types_of_allergies" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="influenza_like_illness_over_the_past_year" type="string_ci" indexed="true" stored="true"/>
     <field name="infections_within_five_years" type="string_ci" indexed="true" stored="true" multiValued="true"/>
@@ -138,11 +138,12 @@
     <field name="onset_hours" type="string_ci" indexed="true" stored="true"/>
     <field name="sudden_onset" type="string_ci" indexed="true" stored="true"/>
     <field name="diagnosis" type="string_ci" indexed="true" stored="true" multiValued="true"/>
-    <field name="pre_visit_medication" type="string_ci" indexed="true" stored="true" multiValued="true"/>
-    <field name="post_visit_medication" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="pre_visit_medications" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="post_visit_medications" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <!-- additional metadata -->
     <field name="comments" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="additional_metatdata" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="false" stored="false"/>
