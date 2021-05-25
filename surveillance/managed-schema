@@ -8,7 +8,6 @@
     <field name="contributing_institution" type="string_ci" indexed="true" stored="true"/>
     <field name="sample_identifier" type="string" indexed="true" stored="true"/>
     <field name="sample_accession" type="string" indexed="true" stored="true"/>
-    <field name="sequence_accession" type="string" indexed="true" stored="true"/>
     <field name="sample_material" type="string_ci" indexed="true" stored="true"/>
     <field name="sample_transport_medium" type="string_ci" indexed="true" stored="true"/>
     <field name="sample_receipt_date" type="string_ci" indexed="true" stored="true"/>
@@ -16,10 +15,6 @@
     <field name="last_update_date" type="pdate" indexed="true" stored="true"/>
     <field name="longitudinal_study" type="string_ci" indexed="true" stored="true"/>
     <field name="embargo_end_date" type="pdate" indexed="true" stored="true"/>
-    <field name="species" type="string_ci" indexed="true" stored="true"/>
-    <field name="type" type="string_ci" indexed="true" stored="true"/>
-    <field name="subtype" type="string_ci" indexed="true" stored="true"/>
-    <field name="strain" type="string_ci" indexed="true" stored="true"/>
 
     <!-- sample collection attributes -->
     <field name="collector_name" type="string_ci" indexed="true" stored="true"/>
@@ -36,49 +31,35 @@
     <field name="collection_latitude" type="pfloat" indexed="true" stored="true"/>
     <field name="collection_longitude" type="pfloat" indexed="true" stored="true"/>
 
-    <!-- sample test/test result -->
-    <field name="influenza_test_type" type="string_ci" indexed="true" stored="true"/>
-    <field name="influenza_test_result" type="string_ci" indexed="true" stored="true"/>
-    <field name="influenza_test_interpretation" type="string_ci" indexed="true" stored="true"/>
-    <field name="sarscov2_test_type" type="string_ci" indexed="true" stored="true"/>
-    <field name="sarscov2_test_result" type="string_ci" indexed="true" stored="true"/>
-    <field name="sarscov2_test_interpretation" type="string_ci" indexed="true" stored="true"/>
-    <field name="other_pathogens_tested" type="string_ci" indexed="true" stored="true"/>
-    <field name="other_pathogen_test_result" type="string_ci" indexed="true" stored="true"/>
+    <!-- sample tests -->
+    <field name="pathogen_test_type" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="pathogen_test_result" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="pathogen_test_interpretation" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="species" type="string_ci" indexed="true" stored="true"/>
+    <field name="type" type="string_ci" indexed="true" stored="true"/>
+    <field name="subtype" type="string_ci" indexed="true" stored="true"/>
+    <field name="strain" type="string_ci" indexed="true" stored="true"/>
+    <field name="sequence_accession" type="string" indexed="true" stored="true"/>
 
     <!-- host attributes -->
-    <field name="host_species" type="string_ci" indexed="true" stored="true"/>
-    <field name="host_common_name" type="string_ci" indexed="true" stored="true"/>
     <field name="host_identifier" type="string" indexed="true" stored="true"/>
     <field name="host_id_type" type="string_ci" indexed="true" stored="true"/>
-    <field name="host_capture_status" type="string_ci" indexed="true" stored="true"/>
-    <field name="host_health" type="string_ci" indexed="true" stored="true"/>
-    <field name="host_natural_state" type="string_ci" indexed="true" stored="true"/>
-    <field name="host_habitat" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_species" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_common_name" type="string_ci" indexed="true" stored="true"/>
     <field name="host_sex" type="string_ci" indexed="true" stored="true"/>
     <field name="host_age" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_height" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_weight" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_habitat" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_natural_state" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_capture_status" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_health" type="string_ci" indexed="true" stored="true"/>
 
-    <!-- subject's permanent characteristics -->
-    <field name="subject_unique_identifier" type="string" indexed="true" stored="true"/>
-    <field name="subject_gender" type="string_ci" indexed="true" stored="true"/>
-    <field name="subject_ethnicity" type="string_ci" indexed="true" stored="true"/>
-    <field name="subject_race" type="string_ci" indexed="true" stored="true"/>
-    <field name="subject_age" type="string_ci" indexed="true" stored="true"/>
-    <field name="subject_height" type="string_ci" indexed="true" stored="true"/>
-    <field name="subject_weight" type="string_ci" indexed="true" stored="true"/>
-
-    <!-- subjec's environmental exposure/settings -->
-    <field name="poultry_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="duration_of_poultry_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="wild_bird_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="duration_of_wild_bird_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="swine_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="duration_of_swine_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="type_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="human_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="duration_of_human_exposure" type="string_ci" indexed="true" stored="true"/>
-    <field name="use_of_personal_protective_equipment" type="string_ci" indexed="true" stored="true"/>
-
+    <!-- environmental exposure -->
+    <field name="exposure" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="duration_of_exposure" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="exposure_type" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="use_of_personal_protective_equipment" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="primary_living_situation" type="string_ci" indexed="true" stored="true"/>
     <field name="nursing_home_residence" type="string_ci" indexed="true" stored="true"/>
     <field name="daycare_attendance" type="string_ci" indexed="true" stored="true"/>
@@ -86,7 +67,7 @@
     <field name="profession" type="string_ci" indexed="true" stored="true"/>
     <field name="education" type="string_ci" indexed="true" stored="true"/>
 
-    <!-- additional data about subject -->
+    <!-- clinical data -->
     <field name="pregnancy" type="string_ci" indexed="true" stored="true"/>
     <field name="trimester_of_pregnancy" type="string_ci" indexed="true" stored="true"/>
     <field name="breastfeeding" type="string_ci" indexed="true" stored="true"/>
@@ -104,8 +85,6 @@
     <field name="alcohol_or_other_drug_dependence" type="string_ci" indexed="true" stored="true"/>
     <field name="tobacco_use" type="string_ci" indexed="true" stored="true"/>
     <field name="packs_per_day_for_how_many_years" type="string_ci" indexed="true" stored="true"/>
-
-    <!-- subject's medical history -->
     <field name="chronic_conditions" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="maintenance_medication" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="types_of_allergies" type="string_ci" indexed="true" stored="true" multiValued="true"/>
@@ -113,18 +92,21 @@
     <field name="infections_within_five_years" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="human_leukocyte_antigens" type="string_ci" indexed="true" stored="true"/>
 
-    <!-- treatment -->
-    <field name="antiviral_treatment" type="string_ci" indexed="true" stored="true"/>
-    <field name="initiation_of_antiviral_treatment" type="string_ci" indexed="true" stored="true"/>
-    <field name="treatment_dosage" type="string_ci" indexed="true" stored="true"/>
-    <field name="duration_of_antiviral_treatment" type="string_ci" indexed="true" stored="true"/>
-    <field name="vasoactive_treatment" type="string_ci" indexed="true" stored="true"/>
-    <field name="initiation_of_vasoactive_treatment" type="string_ci" indexed="true" stored="true"/>
-    <field name="vasoactive_treatment_dosage" type="string_ci" indexed="true" stored="true"/>
-    <field name="duration_of_vasoactive_treatment" type="string_ci" indexed="true" stored="true"/>
-    <field name="other_treatments" type="string_ci" indexed="true" stored="true"/>
+    <!-- subject's symptoms/diagnosis -->
+    <field name="symptoms" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="onset_hours" type="string_ci" indexed="true" stored="true"/>
+    <field name="sudden_onset" type="string_ci" indexed="true" stored="true"/>
+    <field name="diagnosis" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="pre_visit_medications" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="post_visit_medications" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
-    <!-- subject's vaccination -->
+    <!-- treatment -->
+    <field name="treatment" type="string_ci" indexed="true" stored="true"/>
+    <field name="initiation_of_treatment" type="string_ci" indexed="true" stored="true"/>
+    <field name="duration_of_treatment" type="string_ci" indexed="true" stored="true"/>
+    <field name="treatment_dosage" type="string_ci" indexed="true" stored="true"/>
+
+    <!-- vaccination -->
     <field name="vaccination_type" type="string_ci" indexed="true" stored="true"/>
     <field name="days_elapsed_to_vaccination" type="string_ci" indexed="true" stored="true"/>
     <field name="source_of_vaccine_information" type="string_ci" indexed="true" stored="true"/>
@@ -132,14 +114,6 @@
     <field name="vaccine_manufacturer" type="string_ci" indexed="true" stored="true"/>
     <field name="vaccine_dosage" type="string_ci" indexed="true" stored="true"/>
     <field name="other_vaccinations" type="string_ci" indexed="true" stored="true"/>
-
-    <!-- subject's symptoms/diagnosis/treatment -->
-    <field name="symptoms" type="string_ci" indexed="true" stored="true" multiValued="true"/>
-    <field name="onset_hours" type="string_ci" indexed="true" stored="true"/>
-    <field name="sudden_onset" type="string_ci" indexed="true" stored="true"/>
-    <field name="diagnosis" type="string_ci" indexed="true" stored="true" multiValued="true"/>
-    <field name="pre_visit_medications" type="string_ci" indexed="true" stored="true" multiValued="true"/>
-    <field name="post_visit_medications" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <!-- additional metadata -->
     <field name="comments" type="string_ci" indexed="true" stored="true" multiValued="true"/>
