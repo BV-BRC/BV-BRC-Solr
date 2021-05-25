@@ -117,7 +117,7 @@
 
     <!-- additional metadata -->
     <field name="comments" type="string_ci" indexed="true" stored="true" multiValued="true"/>
-    <field name="additional_metatdata" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="additional_metadata" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="false" stored="false"/>
