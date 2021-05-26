@@ -3,11 +3,11 @@
   <fields>
     <field name="id" type="string" indexed="true" stored="true"/><!-- UUID -->
 
-    <field name="project_id" type="string" indexed="true" stored="true"/>
+    <field name="project_identifier" type="string" indexed="true" stored="true"/>
     <field name="contributing_institution" type="string_ci" indexed="true" stored="true"/>
-    <field name="sample_id" type="string" indexed="true" stored="true"/>
+    <field name="sample_identifier" type="string" indexed="true" stored="true"/>
 
-    <field name="host_id" type="string" indexed="true" stored="true"/>
+    <field name="host_identifier" type="string" indexed="true" stored="true"/>
     <field name="host_type" type="string_ci" indexed="true" stored="true"/>
     <field name="host_species" type="string_ci" indexed="true" stored="true"/>
     <field name="host_common_name" type="string_ci" indexed="true" stored="true"/>
@@ -25,7 +25,7 @@
     <field name="test_type" type="string_ci" indexed="true" stored="true"/>
     <field name="test_result" type="string_ci" indexed="true" stored="true"/>
     <field name="test_interpretation" type="string_ci" indexed="true" stored="true"/>
-    <field name="serotype" type="string_ci" indexed="true" stored="true"/>
+    <field name="serotype" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <field name="comments" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
