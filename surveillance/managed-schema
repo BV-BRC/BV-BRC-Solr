@@ -46,6 +46,7 @@
     <field name="host_id_type" type="string_ci" indexed="true" stored="true"/>
     <field name="host_species" type="string_ci" indexed="true" stored="true"/>
     <field name="host_common_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_group" type="string_ci" indexed="true" stored="true"/>
     <field name="host_sex" type="string_ci" indexed="true" stored="true"/>
     <field name="host_age" type="string_ci" indexed="true" stored="true"/>
     <field name="host_height" type="string_ci" indexed="true" stored="true"/>
