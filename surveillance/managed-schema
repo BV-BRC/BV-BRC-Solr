@@ -2,6 +2,7 @@
 <schema name="surveillance" version="1.6">
   <fields>
     <field name="id" type="string" indexed="true" stored="true"/><!-- UUID -->
+    <field name="taxon_lineage_ids" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <!-- sample attributes -->
     <field name="project_identifier" type="string" indexed="true" stored="true"/>

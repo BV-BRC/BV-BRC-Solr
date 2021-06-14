@@ -2,6 +2,7 @@
 <schema name="serology" version="1.6">
   <fields>
     <field name="id" type="string" indexed="true" stored="true"/><!-- UUID -->
+    <field name="taxon_lineage_ids" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="project_identifier" type="string" indexed="true" stored="true"/>
     <field name="contributing_institution" type="string_ci" indexed="true" stored="true"/>
