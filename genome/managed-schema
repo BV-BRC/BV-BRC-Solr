@@ -101,6 +101,7 @@
     <field name="season" type="string" indexed="true" stored="true"/>
 
     <field name="isolation_country" type="string_ci" indexed="true" stored="true"/>
+    <field name="geographic_group" type="string_ci" indexed="true" stored="true"/>
     <field name="geographic_location" type="string_ci" indexed="true" stored="true"/>
     <!--<field name="latitude" type="string_ci" indexed="true" stored="true"/>
     <field name="longitude" type="string_ci" indexed="true" stored="true"/>
@@ -113,6 +114,9 @@
     <field name="host_gender" type="string_ci" indexed="true" stored="true"/>
     <field name="host_age" type="string_ci" indexed="true" stored="true"/>
     <field name="host_health" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_group" type="string_ci" indexed="true" stored="true"/>
+    <field name="lab_host" type="string_ci" indexed="true" stored="true"/>
+    <field name="passage" type="string_ci" indexed="true" stored="true"/>
     <!--<field name="body_sample_site" type="string_ci" indexed="true" stored="true"/>
     <field name="body_sample_subsite" type="string_ci" indexed="true" stored="true"/>--><!-- deprecated -->
     <field name="other_clinical" type="string_ci" indexed="true" stored="true" multiValued="true"/> <!-- -->
