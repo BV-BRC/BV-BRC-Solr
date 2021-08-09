@@ -2,10 +2,10 @@
 <schema name="genome" version="1.6">
   <fields>
     <field name="genome_id" type="string" indexed="true" stored="true"/>
-    <!--<field name="p2_genome_id" type="int" indexed="true" stored="true"/>--><!-- deprecated -->
+    <field name="p2_genome_id" type="int" indexed="true" stored="true"/><!-- deprecated -->
     <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
-    <!--<field name="common_name" type="string" indexed="true" stored="true"/>--><!-- deprecated -->
-    <!--<field name="organism_name" type="string_ci" indexed="true" stored="true"/>--><!-- deprecated -->
+    <field name="common_name" type="string" indexed="true" stored="true"/><!-- deprecated -->
+    <field name="organism_name" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
     <field name="other_names" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <!-- taxonomy -->
@@ -42,10 +42,10 @@
     <field name="biosample_accession" type="string" indexed="true" stored="true"/>
     <field name="assembly_accession" type="string" indexed="true" stored="true"/>
     <field name="sra_accession" type="string" indexed="true" stored="true"/>
-    <!--<field name="ncbi_project_id" type="string" indexed="true" stored="true"/>--><!-- deprecate -->
-    <!--<field name="refseq_project_id" type="string" indexed="true" stored="true"/>--><!-- deprecate -->
+    <field name="ncbi_project_id" type="string" indexed="true" stored="true"/><!-- deprecate -->
+    <field name="refseq_project_id" type="string" indexed="true" stored="true"/><!-- deprecate -->
     <field name="genbank_accessions" type="string_ci" indexed="true" stored="true"/>
-    <!--<field name="refseq_accessions" type="string_ci" indexed="true" stored="true"/>--><!-- deprecate -->
+    <field name="refseq_accessions" type="string_ci" indexed="true" stored="true"/><!-- deprecate -->
 
     <field name="sequencing_centers" type="string_ci" indexed="true" stored="true"/>
     <field name="sequencing_status" type="string_ci" indexed="true" stored="true"/>
@@ -64,8 +64,8 @@
     <field name="contig_n50" type="int" indexed="true" stored="true"/>
 
     <!-- annotation statistics -->
-    <!--<field name="patric_cds" type="int" indexed="true" stored="true"/>
-    <field name="refseq_cds" type="int" indexed="true" stored="true"/>--><!-- deprecated -->
+    <field name="patric_cds" type="int" indexed="true" stored="true"/><!-- deprecated -->
+    <field name="refseq_cds" type="int" indexed="true" stored="true"/><!-- deprecated -->
 
     <field name="trna" type="int" indexed="true" stored="true"/>
     <field name="rrna" type="int" indexed="true" stored="true"/>
@@ -93,7 +93,7 @@
     <field name="outgroup_genomes" type="string" indexed="true" stored="true" multiValued="true"/><!-- genome_ids -->
 
     <!-- isolation metadata -->
-    <!--<field name="isolation_site" type="string_ci" indexed="true" stored="true"/>--><!-- deprecated -->
+    <field name="isolation_site" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
     <field name="isolation_source" type="string_ci" indexed="true" stored="true"/>
     <field name="isolation_comments" type="string_ci" indexed="true" stored="true"/>
     <field name="collection_date" type="string" indexed="true" stored="true"/>
@@ -103,10 +103,10 @@
     <field name="isolation_country" type="string_ci" indexed="true" stored="true"/>
     <field name="geographic_group" type="string_ci" indexed="true" stored="true"/>
     <field name="geographic_location" type="string_ci" indexed="true" stored="true"/>
-    <!--<field name="latitude" type="string_ci" indexed="true" stored="true"/>
-    <field name="longitude" type="string_ci" indexed="true" stored="true"/>
-    <field name="altitude" type="string_ci" indexed="true" stored="true"/>
-    <field name="depth" type="string_ci" indexed="true" stored="true"/>--><!-- deprecated -->
+    <field name="latitude" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
+    <field name="longitude" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
+    <field name="altitude" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
+    <field name="depth" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
     <field name="other_environmental" type="string_ci" indexed="true" stored="true" multiValued="true"/> <!-- -->
 
     <field name="host_name" type="string_ci" indexed="true" stored="true"/>
@@ -117,12 +117,12 @@
     <field name="host_group" type="string_ci" indexed="true" stored="true"/>
     <field name="lab_host" type="string_ci" indexed="true" stored="true"/>
     <field name="passage" type="string_ci" indexed="true" stored="true"/>
-    <!--<field name="body_sample_site" type="string_ci" indexed="true" stored="true"/>
-    <field name="body_sample_subsite" type="string_ci" indexed="true" stored="true"/>--><!-- deprecated -->
+    <field name="body_sample_site" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
+    <field name="body_sample_subsite" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
     <field name="other_clinical" type="string_ci" indexed="true" stored="true" multiValued="true"/> <!-- -->
 
-    <!--<field name="antimicrobial_resistance" type="string_ci" indexed="true" stored="true" multiValued="true"/>--><!-- deprecated -->
-    <!--<field name="antimicrobial_resistance_evidence" type="string_ci" indexed="true" stored="true"/>--><!-- deprecated -->
+    <field name="antimicrobial_resistance" type="string_ci" indexed="true" stored="true" multiValued="true"/><!-- deprecated -->
+    <field name="antimicrobial_resistance_evidence" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
     <field name="phenotype" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <field name="gram_stain" type="string_ci" indexed="true" stored="true"/>
