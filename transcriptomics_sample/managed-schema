@@ -95,7 +95,7 @@
     </analyzer>
   </fieldType>
 
-  <fieldType name="string_ci" class="solr.SortableTextField" sortMissingLast="true" omitNorms="true">
+  <fieldType name="string_ci" class="solr.SortableTextField" docValues="true" sortMissingLast="true" omitNorms="true">
     <analyzer type="index">
       <tokenizer class="solr.KeywordTokenizerFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
