@@ -13,6 +13,7 @@
     <field name="taxon_lineage_ids" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="taxon_lineage_names" type="string" indexed="true" stored="true" multiValued="true"/>
 
+    <field name="superkingdom" type="string_ci" indexed="true" stored="true"/>
     <field name="kingdom" type="string_ci" indexed="true" stored="true"/>
     <field name="phylum" type="string_ci" indexed="true" stored="true"/>
     <field name="class" type="string_ci" indexed="true" stored="true"/>
