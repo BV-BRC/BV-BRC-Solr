@@ -28,6 +28,13 @@
     <field name="biovar" type="string_ci" indexed="true" stored="true"/>
     <field name="pathovar" type="string_ci" indexed="true" stored="true"/>
     <field name="mlst" type="string_ci" indexed="true" stored="true"/>
+    <field name="segment" type="string" indexed="true" stored="true"/>
+    <field name="subtype" type="string" indexed="true" stored="true"/>
+    <field name="h_type" type="int" indexed="true" stored="true"/>
+    <field name="n_type" type="int" indexed="true" stored="true"/>
+    <field name="lineage" type="string" indexed="true" stored="true"/>
+    <field name="clade" type="string" indexed="true" stored="true"/>
+    <field name="subclade" type="string" indexed="true" stored="true"/>
     <field name="other_typing" type="string_ci" indexed="true" stored="true" multiValued="true"/> <!-- -->
 
     <field name="culture_collection" type="string_ci" indexed="true" stored="true"/>
