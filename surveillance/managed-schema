@@ -31,6 +31,7 @@
     <field name="collection_poi" type="string_ci" indexed="true" stored="true"/>
     <field name="collection_latitude" type="pfloat" indexed="true" stored="true"/>
     <field name="collection_longitude" type="pfloat" indexed="true" stored="true"/>
+    <field name="geographic_group" type="string_ci" indexed="true" stored="true"/>
 
     <!-- sample tests -->
     <field name="pathogen_test_type" type="string_ci" indexed="true" stored="true" multiValued="true"/>
