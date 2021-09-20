@@ -20,7 +20,7 @@
     <field name="assay_results" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="bcell_assays" type="string" indexed="true" stored="true"/>
-    <field name="tcel_assays" type="string" indexed="true" stored="true"/>
+    <field name="tcell_assays" type="string" indexed="true" stored="true"/>
     <field name="mhc_assays" type="string" indexed="true" stored="true"/>
 
     <field name="comments" type="string_ci" indexed="true" stored="true" multiValued="true"/>

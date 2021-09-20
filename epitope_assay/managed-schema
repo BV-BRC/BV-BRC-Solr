@@ -29,8 +29,8 @@
     <field name="assay_result" type="string" indexed="true" stored="true"/>
     <field name="assay_measurement" type="string" indexed="true" stored="true"/>
     <field name="assay_measurement_unit" type="string" indexed="true" stored="true"/>
-    <field name="mhc_allel" type="string" indexed="true" stored="true"/>
-    <field name="mhc_allel_class" type="string" indexed="true" stored="true"/>
+    <field name="mhc_allele" type="string" indexed="true" stored="true"/>
+    <field name="mhc_allele_class" type="string" indexed="true" stored="true"/>
 
     <field name="pmid" type="string" indexed="true" stored="true"/>
     <field name="authors" type="string" indexed="true" stored="true"/>
