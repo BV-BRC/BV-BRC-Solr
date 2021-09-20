@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="epitope" version="1.6">
   <fields>
-    <field name="epitope_id" type="int" indexed="true" stored="true"/>
+    <field name="epitope_id" type="string" indexed="true" stored="true"/>
     <field name="epitope_type" type="string" indexed="true" stored="true"/>
     <field name="epitope_sequence" type="string" indexed="true" stored="true"/>
 
