@@ -56,29 +56,22 @@
 
   <uniqueKey>id</uniqueKey>
 
-  <copyField source="study_name" dest="text"/>
-  <copyField source="study_title" dest="text"/>
   <copyField source="exp_name" dest="text"/>
   <copyField source="exp_title" dest="text"/>
   <copyField source="exp_type" dest="text"/>
-
   <copyField source="bioset_name" dest="text"/>
   <copyField source="bioset_description" dest="text"/>
   <copyField source="bioset_type" dest="text"/>
-  <copyField source="analysis_method" dest="text"/>
-  <copyField source="bioset_criteria" dest="text"/>
   <copyField source="result_type" dest="text"/>
   <copyField source="organism" dest="text"/>
   <copyField source="strain" dest="text"/>
-  <copyField source="analysis_group_1" dest="text"/>
-  <copyField source="analysis_group_2" dest="text"/>
   <copyField source="treatment_type" dest="text"/>
   <copyField source="treatment_name" dest="text"/>
   <copyField source="treatment_amount" dest="text"/>
   <copyField source="treatment_duration" dest="text"/>
   <copyField source="entity_type" dest="text"/>
-  <copyField source="entity_count" dest="text"/>
-  <copyField source="additional_metadata" dest="text"/>
+  <copyField source="gene" dest="text"/>
+  <copyField source="product" dest="text"/>
 
   <!-- type definitions -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
