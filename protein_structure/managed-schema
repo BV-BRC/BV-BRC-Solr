@@ -15,7 +15,7 @@
     <field name="uniprotkb_accession" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="gene" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="product" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="sequence_md5" type="string" indexed="true" stored="true"/>
+    <field name="sequence_md5" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="sequence" type="string" indexed="false" stored="true" multiValued="true"/>
 
     <field name="alignments" type="string" indexed="true" stored="true" multiValued="true"/>
