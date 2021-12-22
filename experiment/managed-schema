@@ -25,9 +25,9 @@
     <field name="detection_instrument" type="string_ci" indexed="true" stored="true"/>
     <field name="exp_protocol" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
-    <field name="organism" type="string_ci" indexed="true" stored="true"/>
-    <field name="strain" type="string_ci" indexed="true" stored="true"/>
-    <field name="taxon_id" type="int" indexed="true" stored="true"/>
+    <field name="organism" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="strain" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="taxon_id" type="int" indexed="true" stored="true" multiValued="true"/>
     <field name="taxon_lineage_ids" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="genome_id" type="string" indexed="true" stored="true" multiValued="true"/>
 
