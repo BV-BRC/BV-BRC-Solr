@@ -38,10 +38,11 @@
     <field name="pathogen_test_result" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="pathogen_test_interpretation" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="species" type="string_ci" indexed="true" stored="true"/>
-    <field name="type" type="string_ci" indexed="true" stored="true"/>
+    <field name="pathogen_type" type="string_ci" indexed="true" stored="true"/>
     <field name="subtype" type="string_ci" indexed="true" stored="true"/>
     <field name="strain" type="string_ci" indexed="true" stored="true"/>
     <field name="sequence_accession" type="string" indexed="true" stored="true"/>
+    <field name="genome_id" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <!-- host attributes -->
     <field name="host_identifier" type="string" indexed="true" stored="true"/>
