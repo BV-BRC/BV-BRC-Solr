@@ -33,6 +33,10 @@
     <field name="subtype" type="string" indexed="true" stored="true"/>
     <field name="h_type" type="int" indexed="true" stored="true"/>
     <field name="n_type" type="int" indexed="true" stored="true"/>
+    <field name="h1_clade_gobal" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="h1_clade_us" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="h5_clade" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="ph1n1_like" type="string" indexed="true" stored="true"/>
     <field name="lineage" type="string" indexed="true" stored="true"/>
     <field name="clade" type="string" indexed="true" stored="true"/>
     <field name="subclade" type="string" indexed="true" stored="true"/>

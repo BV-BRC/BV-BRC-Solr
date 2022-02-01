@@ -16,6 +16,7 @@
 
     <field name="start" type="int" indexed="true" stored="true"/>
     <field name="end" type="int" indexed="true" stored="true"/>
+    <field name="host_name" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="total_assays" type="int" indexed="true" stored="true"/>
     <field name="assay_results" type="string" indexed="true" stored="true" multiValued="true"/>
 
