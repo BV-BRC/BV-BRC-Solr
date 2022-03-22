@@ -18,6 +18,8 @@
 
     <field name="genome_ids" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="genbank_accessions" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="segment_count" type="int" indexed="true" stored="true"/>
+    <field name="status" type="string" indexed="true" stored="true"/>
 
     <field name="host_group" type="string_ci" indexed="true" stored="true"/>
     <field name="host_common_name" type="string_ci" indexed="true" stored="true"/>
@@ -43,7 +45,7 @@
     <field name="s" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="m" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="l" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="others" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="other_segments" type="string" indexed="true" stored="true" multiValued="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="true" stored="true"/>
