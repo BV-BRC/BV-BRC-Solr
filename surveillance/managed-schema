@@ -18,7 +18,7 @@
     <field name="embargo_end_date" type="pdate" indexed="true" stored="true"/>
 
     <!-- sample collection attributes -->
-    <field name="collector_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="collector_name" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="collector_institution" type="string_ci" indexed="true" stored="true"/>
     <field name="contact_email_address" type="string_ci" indexed="true" stored="true"/>
     <field name="collection_date" type="pdate" indexed="true" stored="true"/>
@@ -52,6 +52,8 @@
     <field name="host_group" type="string_ci" indexed="true" stored="true"/>
     <field name="host_sex" type="string_ci" indexed="true" stored="true"/>
     <field name="host_age" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_race" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="host_ethnicity" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="host_height" type="string_ci" indexed="true" stored="true"/>
     <field name="host_weight" type="string_ci" indexed="true" stored="true"/>
     <field name="host_habitat" type="string_ci" indexed="true" stored="true"/>
@@ -67,7 +69,7 @@
     <field name="primary_living_situation" type="string_ci" indexed="true" stored="true"/>
     <field name="nursing_home_residence" type="string_ci" indexed="true" stored="true"/>
     <field name="daycare_attendance" type="string_ci" indexed="true" stored="true"/>
-    <field name="travel_history" type="string_ci" indexed="true" stored="true"/>
+    <field name="travel_history" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="profession" type="string_ci" indexed="true" stored="true"/>
     <field name="education" type="string_ci" indexed="true" stored="true"/>
 
@@ -106,17 +108,17 @@
 
     <!-- treatment -->
     <field name="treatment" type="string_ci" indexed="true" stored="true"/>
-    <field name="initiation_of_treatment" type="string_ci" indexed="true" stored="true"/>
+    <field name="initiation_of_treatment" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="duration_of_treatment" type="string_ci" indexed="true" stored="true"/>
-    <field name="treatment_dosage" type="string_ci" indexed="true" stored="true"/>
+    <field name="treatment_dosage" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <!-- vaccination -->
     <field name="vaccination_type" type="string_ci" indexed="true" stored="true"/>
-    <field name="days_elapsed_to_vaccination" type="string_ci" indexed="true" stored="true"/>
-    <field name="source_of_vaccine_information" type="string_ci" indexed="true" stored="true"/>
-    <field name="vaccine_lot_number" type="string_ci" indexed="true" stored="true"/>
-    <field name="vaccine_manufacturer" type="string_ci" indexed="true" stored="true"/>
-    <field name="vaccine_dosage" type="string_ci" indexed="true" stored="true"/>
+    <field name="days_elapsed_to_vaccination" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="source_of_vaccine_information" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="vaccine_lot_number" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="vaccine_manufacturer" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="vaccine_dosage" type="string_ci" indexed="true" stored="true" vaccine_dosage/>
     <field name="other_vaccinations" type="string_ci" indexed="true" stored="true"/>
 
     <!-- additional metadata -->
