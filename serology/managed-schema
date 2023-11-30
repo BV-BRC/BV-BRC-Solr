@@ -7,9 +7,10 @@
     <field name="project_identifier" type="string" indexed="true" stored="true"/>
     <field name="contributing_institution" type="string_ci" indexed="true" stored="true"/>
     <field name="sample_identifier" type="string" indexed="true" stored="true"/>
+    <field name="sample_accession" type="string" indexed="true" stored="true"/>
 
     <field name="host_identifier" type="string" indexed="true" stored="true"/>
-    <field name="host_type" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_type" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="host_species" type="string_ci" indexed="true" stored="true"/>
     <field name="host_common_name" type="string_ci" indexed="true" stored="true"/>
     <field name="host_sex" type="string_ci" indexed="true" stored="true"/>
@@ -25,10 +26,17 @@
     <field name="geographic_group" type="string_ci" indexed="true" stored="true"/>
 
     <field name="test_type" type="string_ci" indexed="true" stored="true"/>
+    <field name="test_antigen" type="string_ci" indexed="true" stored="true"/>
     <field name="test_result" type="string_ci" indexed="true" stored="true"/>
     <field name="test_interpretation" type="string_ci" indexed="true" stored="true"/>
+    <field name="positive_definition" type="string_ci" indexed="true" stored="true"/>
+    <field name="test_pathogen" type="string_ci" indexed="true" stored="true"/>
+    <field name="strain" type="string_ci" indexed="true" stored="true"/>
     <field name="serotype" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="virus_identifier" type="string_ci" indexed="true" stored="true"/>
+    <field name="genbank_accession" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
+    <field name="additional_metadata" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="comments" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
