@@ -26,6 +26,7 @@
     <field name="institution" type="string" indexed="true" stored="true"/>
     <field name="authors" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="release_date" type="pdate" indexed="true" stored="true"/>
+    <field name="file_path" type="string" indexed="true" stored="true"/>
 
     <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
     <field name="_version_" type="long" indexed="false" stored="false"/>
