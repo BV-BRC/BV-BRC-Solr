@@ -10,7 +10,9 @@
     <field name="sfvt_id" type="string" indexed="true" stored="true"/>
     <field name="sfvt_genome_count" type="string" indexed="true" stored="true"/>
     <field name="sf_sequence" type="string" indexed="true" stored="true"/>
+    <field name="sf_sequence_md5" type="string" indexed="true" stored="true"/>
     <field name="sfvt_sequence" type="string" indexed="true" stored="true"/>
+    <field name="sfvt_sequence_md5" type="string" indexed="true" stored="true"/>
     <field name="sfvt_variations" type="string" indexed="true" stored="true"/>
 
     <field name="additional_metadata" type="string_ci" indexed="true" stored="true" multiValued="true"/>

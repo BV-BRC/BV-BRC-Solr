@@ -6,6 +6,9 @@
     <field name="genome_id" type="string" indexed="true" stored="true"/>
     <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
     <field name="taxon_id" type="int" indexed="true" stored="true"/>
+    <field name="genbank_accession" type="string" indexed="true" stored="true"/>
+    <field name="subtype" type="string" indexed="true" stored="true"/>
+    <field name="segment" type="string" indexed="true" stored="true"/>
 
     <field name="feature_id" type="string" indexed="true" stored="true"/>
     <field name="patric_id" type="string" indexed="true" stored="true"/>
@@ -31,7 +34,8 @@
     <field name="end" type="int" indexed="true" stored="true"/>
     <field name="segments" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="length" type="int" indexed="true" stored="true"/>
-    <field name="sequence" type="string" indexed="true" stored="true"/>
+    <field name="sf_sequence" type="string" indexed="true" stored="true"/>
+    <field name="sf_sequence_md5" type="string" indexed="true" stored="true"/>
     <field name="aa_variant" type="string" indexed="true" stored="true"/>
     <field name="variant_types" type="string" indexed="true" stored="true"/>
     
@@ -50,6 +54,7 @@
   <copyField source="genome_id" dest="text"/>
   <copyField source="genome_name" dest="text"/>
   <copyField source="taxon_id" dest="text"/>
+  <copyField source="genbank_accession" dest="text"/>
   <copyField source="patric_id" dest="text"/>
   <copyField source="refseq_locus_tag" dest="text"/>
   <copyField source="gene" dest="text"/>
