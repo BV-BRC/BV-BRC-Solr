@@ -35,6 +35,7 @@
     <field name="n_type" type="int" indexed="true" stored="true"/>
     <field name="h1_clade_global" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="h1_clade_us" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="h3_clade" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="h5_clade" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="ph1n1_like" type="string" indexed="true" stored="true"/>
     <field name="lineage" type="string" indexed="true" stored="true"/>
@@ -113,6 +114,7 @@
     <field name="season" type="string" indexed="true" stored="true"/>
 
     <field name="isolation_country" type="string_ci" indexed="true" stored="true"/>
+    <field name="state_province" type="string_ci" indexed="true" stored="true"/>
     <field name="geographic_group" type="string_ci" indexed="true" stored="true"/>
     <field name="geographic_location" type="string_ci" indexed="true" stored="true"/>
     <field name="latitude" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
@@ -123,6 +125,7 @@
 
     <field name="host_name" type="string_ci" indexed="true" stored="true"/>
     <field name="host_common_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="host_scientific_name" type="string_ci" indexed="true" stored="true"/>
     <field name="host_gender" type="string_ci" indexed="true" stored="true"/>
     <field name="host_age" type="string_ci" indexed="true" stored="true"/>
     <field name="host_health" type="string_ci" indexed="true" stored="true"/>
