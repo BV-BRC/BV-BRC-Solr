@@ -111,6 +111,7 @@
     <field name="initiation_of_treatment" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="duration_of_treatment" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="treatment_dosage" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="treatment_type" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
     <!-- vaccination -->
     <field name="vaccination_type" type="string_ci" indexed="true" stored="true"/>
