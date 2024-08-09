@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <schema name="genome" version="1.6">
   <fields>
     <field name="genome_id" type="string" indexed="true" stored="true"/>
@@ -175,31 +175,26 @@
 
   <!-- type definitions -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
-  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
-
-  <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
-  <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
-
-  <fieldType name="int" class="solr.IntPointField" docValues="true"/>
-  <fieldType name="float" class="solr.FloatPointField" docValues="true"/>
-  <fieldType name="long" class="solr.LongPointField" docValues="true"/>
-  <fieldType name="double" class="solr.DoublePointField" docValues="true"/>
-
-  <fieldType name="pint" class="solr.IntPointField" docValues="true"/>
-  <fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
-  <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
-  <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
-
-  <fieldType name="pints" class="solr.IntPointField" docValues="true" multiValued="true"/>
-  <fieldType name="pfloats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
-  <fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true"/>
-  <fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
-  <fieldType name="random" class="solr.RandomSortField" indexed="true"/>
-
-  <fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
-  <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
-
-  <fieldType name="text_custom" class="solr.TextField" positionIncrementGap="100">
+<fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
+<fieldType name="string_raw" class="solr.StrField" sortMissingLast="true"/>
+<fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+<fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+<fieldType name="int" class="solr.IntPointField" docValues="true"/>
+<fieldType name="float" class="solr.FloatPointField" docValues="true"/>
+<fieldType name="long" class="solr.LongPointField" docValues="true"/>
+<fieldType name="double" class="solr.DoublePointField" docValues="true"/>
+<fieldType name="pint" class="solr.IntPointField" docValues="true"/>
+<fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
+<fieldType name="plong" class="solr.LongPointField" docValues="true"/>
+<fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+<fieldType name="pints" class="solr.IntPointField" docValues="true" multiValued="true"/>
+<fieldType name="pfloats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
+<fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true"/>
+<fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+<fieldType name="random" class="solr.RandomSortField" indexed="true"/>
+<fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+<fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+<fieldType name="text_custom" class="solr.TextField" positionIncrementGap="100">
     <analyzer type="index">
       <tokenizer class="solr.WhitespaceTokenizerFactory"/>
       <filter class="solr.WordDelimiterGraphFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" splitOnCaseChange="0" splitOnNumerics="1" preserveOriginal="1"/>
@@ -212,8 +207,7 @@
       <filter class="solr.LowerCaseFilterFactory"/>
     </analyzer>
   </fieldType>
-
-  <fieldType name="string_ci" class="solr.SortableTextField" sortMissingLast="true" omitNorms="true">
+<fieldType name="string_ci" class="solr.SortableTextField" sortMissingLast="true" omitNorms="true" docValues="true">
     <analyzer type="index">
       <tokenizer class="solr.KeywordTokenizerFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
@@ -227,8 +221,7 @@
       <filter class="solr.WordDelimiterGraphFilterFactory" stemEnglishPossessive="1" splitOnNumerics="1" splitOnCaseChange="1" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="1" preserveOriginal="1"/>
     </analyzer>
   </fieldType>
-
-  <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+<fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
     <analyzer type="index">
       <tokenizer class="solr.StandardTokenizerFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
