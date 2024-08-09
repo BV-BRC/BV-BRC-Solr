@@ -38,7 +38,7 @@
     <field name="sf_sequence_md5" type="string" indexed="true" stored="true"/>
     <field name="aa_variant" type="string" indexed="true" stored="true"/>
     <field name="variant_types" type="string" indexed="true" stored="true"/>
-    
+
     <field name="additional_metadata" type="string_ci" indexed="true" stored="true" multiValued="true"/>
     <field name="comments" type="string_ci" indexed="true" stored="true" multiValued="true"/>
 
@@ -64,6 +64,7 @@
   <copyField source="sf_category" dest="text"/>
   <copyField source="source" dest="text"/>
   <copyField source="source_id" dest="text"/>
+  <copyField source="source_strain" dest="text"/>
   <copyField source="publication" dest="text"/>
 
   <!-- type definitions -->
