@@ -115,6 +115,8 @@
 
     <field name="isolation_country" type="string_ci" indexed="true" stored="true"/>
     <field name="state_province" type="string_ci" indexed="true" stored="true"/>
+    <field name="county" type="string_ci" indexed="true" stored="true"/>
+    <field name="city" type="string_ci" indexed="true" stored="true"/>
     <field name="geographic_group" type="string_ci" indexed="true" stored="true"/>
     <field name="geographic_location" type="string_ci" indexed="true" stored="true"/>
     <field name="latitude" type="string_ci" indexed="true" stored="true"/><!-- deprecated -->
