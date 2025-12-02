@@ -29,6 +29,17 @@
     <field name="biovar" type="string_ci" indexed="true" stored="true"/>
     <field name="pathovar" type="string_ci" indexed="true" stored="true"/>
     <field name="mlst" type="string_ci" indexed="true" stored="true"/>
+
+    <!-- Precomputed cgMLST data -->
+    <field name="cgmlst_id" type="string" indexed="true" stored="true"/>
+    <field name="cgmlst_hc0" type="string" indexed="true" stored="true"/>
+    <field name="cgmlst_hc2" type="string" indexed="true" stored="true"/>
+    <field name="cgmlst_hc5" type="string" indexed="true" stored="true"/>
+    <field name="cgmlst_hc10" type="string" indexed="true" stored="true"/>
+    <field name="cgmlst_hc20" type="string" indexed="true" stored="true"/>
+    <field name="cgmlst_hc50" type="string" indexed="true" stored="true"/>
+    <field name="cgmlst_hc100" type="string" indexed="true" stored="true"/>
+
     <field name="segment" type="string" indexed="true" stored="true"/>
     <field name="subtype" type="string" indexed="true" stored="true"/>
     <field name="h_type" type="int" indexed="true" stored="true"/>
