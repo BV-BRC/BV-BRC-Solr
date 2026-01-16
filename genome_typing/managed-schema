@@ -1,59 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema name="genome_typing" version="1.0">
-  <fields>
-    <!-- Unique identifier -->
-    <field name="uuid" type="string" indexed="true" stored="true"/>
-    
-    <!-- Core genome typing fields -->
-    <field name="genome_id" type="string" indexed="true" stored="true"/>
-    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
-    <field name="taxon_id" type="int" indexed="true" stored="true"/>
-    
-    <!-- Typing method and scheme information -->
-    <field name="method" type="string_ci" indexed="true" stored="true"/>
-    <field name="scheme_id" type="string" indexed="true" stored="true"/>
-    <field name="scheme_name" type="string_ci" indexed="true" stored="true"/>
-    <field name="scheme_source" type="string_ci" indexed="true" stored="true"/>
-    <field name="scheme_version" type="string" indexed="true" stored="true"/>
-    
-    <!-- Typing results -->
-    <field name="sequence_type" type="string" indexed="true" stored="true"/>
-    <field name="loci" type="string" indexed="true" stored="true"/>
-    <field name="allele_profile" type="string" indexed="true" stored="true"/>
-    
-    <!-- Quality control fields -->
-    <field name="loci_total" type="int" indexed="true" stored="true"/>
-    <field name="loci_called" type="int" indexed="true" stored="true"/>
-    <field name="loci_missing" type="int" indexed="true" stored="true"/>
-    <field name="pct_called" type="float" indexed="true" stored="true"/>
-    <field name="qc" type="string" indexed="true" stored="true"/>
-    
-    <!-- Standard metadata fields -->
-    <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
-    <field name="_version_" type="long" indexed="true" stored="true"/>
-    
-    <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
-    <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
-    
-    <!-- Privilege control -->
-    <field name="public" type="boolean" indexed="true" stored="true"/>
-    <field name="owner" type="string" indexed="true" stored="true"/>
-    <field name="user_read" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="user_write" type="string" indexed="true" stored="true" multiValued="true"/>
-  </fields>
-  
-  <uniqueKey>uuid</uniqueKey>
-  
-  <!-- Copy only searchable text fields -->
-  <copyField source="genome_id" dest="text"/>
-  <copyField source="genome_name" dest="text"/>
-  <copyField source="taxon_id" dest="text"/>
-  <copyField source="method" dest="text"/>
-  <copyField source="scheme_name" dest="text"/>
-  <copyField source="scheme_source" dest="text"/>
-  <copyField source="sequence_type" dest="text"/>
-  
-  <!-- Field type definitions -->
+<schema name="genome_typing" version="1.6">
+  <!-- Field type definitions (must come before fields in Solr 9.x) -->
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
   <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
   <fieldType name="string_raw" class="solr.StrField" sortMissingLast="true"/>
@@ -110,4 +57,57 @@
       <filter class="solr.LowerCaseFilterFactory"/>
     </analyzer>
   </fieldType>
+
+  <fields>
+    <!-- Unique identifier -->
+    <field name="uuid" type="string" indexed="true" stored="true"/>
+    
+    <!-- Core genome typing fields -->
+    <field name="genome_id" type="string" indexed="true" stored="true"/>
+    <field name="genome_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="taxon_id" type="int" indexed="true" stored="true"/>
+    
+    <!-- Typing method and scheme information -->
+    <field name="method" type="string_ci" indexed="true" stored="true"/>
+    <field name="scheme_id" type="string" indexed="true" stored="true"/>
+    <field name="scheme_name" type="string_ci" indexed="true" stored="true"/>
+    <field name="scheme_source" type="string_ci" indexed="true" stored="true"/>
+    <field name="scheme_version" type="string" indexed="true" stored="true"/>
+    
+    <!-- Typing results -->
+    <field name="sequence_type" type="string" indexed="true" stored="true"/>
+    <field name="loci" type="string" indexed="true" stored="true"/>
+    <field name="allele_profile" type="string" indexed="true" stored="true"/>
+    
+    <!-- Quality control fields -->
+    <field name="loci_total" type="int" indexed="true" stored="true"/>
+    <field name="loci_called" type="int" indexed="true" stored="true"/>
+    <field name="loci_missing" type="int" indexed="true" stored="true"/>
+    <field name="pct_called" type="float" indexed="true" stored="true"/>
+    <field name="qc" type="string" indexed="true" stored="true"/>
+    
+    <!-- Standard metadata fields -->
+    <field name="text" type="text_custom" indexed="true" stored="false" multiValued="true"/>
+    <field name="_version_" type="long" indexed="true" stored="true"/>
+    
+    <field name="date_inserted" type="pdate" indexed="true" stored="true" default="NOW"/>
+    <field name="date_modified" type="pdate" indexed="true" stored="true" default="NOW"/>
+    
+    <!-- Privilege control -->
+    <field name="public" type="boolean" indexed="true" stored="true"/>
+    <field name="owner" type="string" indexed="true" stored="true"/>
+    <field name="user_read" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="user_write" type="string" indexed="true" stored="true" multiValued="true"/>
+  </fields>
+  
+  <uniqueKey>uuid</uniqueKey>
+  
+  <!-- Copy only searchable text fields -->
+  <copyField source="genome_id" dest="text"/>
+  <copyField source="genome_name" dest="text"/>
+  <copyField source="taxon_id" dest="text"/>
+  <copyField source="method" dest="text"/>
+  <copyField source="scheme_name" dest="text"/>
+  <copyField source="scheme_source" dest="text"/>
+  <copyField source="sequence_type" dest="text"/>
 </schema>
