@@ -60,7 +60,7 @@
 
   <fields>
     <!-- Unique identifier -->
-    <field name="uuid" type="string" indexed="true" stored="true"/>
+    <field name="id" type="string" indexed="true" stored="true"/>
     
     <!-- Core genome typing fields -->
     <field name="genome_id" type="string" indexed="true" stored="true"/>
@@ -100,7 +100,7 @@
     <field name="user_write" type="string" indexed="true" stored="true" multiValued="true"/>
   </fields>
   
-  <uniqueKey>uuid</uniqueKey>
+  <uniqueKey>id</uniqueKey>
   
   <!-- Copy only searchable text fields -->
   <copyField source="genome_id" dest="text"/>
