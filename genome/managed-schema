@@ -121,6 +121,7 @@
     <field name="isolation_source" type="string_ci" indexed="true" stored="true"/>
     <field name="isolation_comments" type="string_ci" indexed="true" stored="true"/>
     <field name="collection_date" type="string" indexed="true" stored="true"/>
+    <field name="collection_date_dr" type="rdate" indexed="true" stored="false"/>
     <field name="collection_year" type="int" indexed="true" stored="true"/>
     <field name="season" type="string" indexed="true" stored="true"/>
 
@@ -206,6 +207,7 @@
 <fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
 <fieldType name="random" class="solr.RandomSortField" indexed="true"/>
 <fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+<fieldType name="rdate" class="solr.DateRangeField" docValues="false"/>
 <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
 <fieldType name="text_custom" class="solr.TextField" positionIncrementGap="100">
     <analyzer type="index">
