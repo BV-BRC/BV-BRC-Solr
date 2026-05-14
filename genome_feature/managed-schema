@@ -10,6 +10,7 @@
 
     <field name="annotation" type="string" indexed="true" stored="true"/>
     <field name="feature_type" type="string" indexed="true" stored="true"/>
+    <field name="prediction_method" type="string" indexed="true" stored="true"/>
 
     <field name="feature_id" type="string" indexed="true" stored="true"/>
     <field name="p2_feature_id" type="long" indexed="true" stored="true"/><!-- deprecated -->

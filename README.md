@@ -31,3 +31,10 @@ $ curl 'http://localhost:8983/solr/admin/collections?action=LIST'
 $ curl 'http://localhost:8983/solr/admin/collections?action=DELETE&name=genome'
 ```
 For more detail, refer the Collections API <https://lucene.apache.org/solr/guide/7_5/collections-api.html>
+
+# Change history 
+
+## May, 2026
+
+We are change genome.segment to multivalue. This requires a dump and reindex. The load is going into collection
+genome_v02 which will then be aliased to genome.
