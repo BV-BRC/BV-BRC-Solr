@@ -34,6 +34,13 @@ For more detail, refer the Collections API <https://lucene.apache.org/solr/guide
 
 # Change history 
 
+## August, 2026
+
+New collection `private_genome_metadata`: lab-submitted, access-controlled genome metadata
+(submitting lab, patient demographics, isolation geography, serotyping/toxin results).
+Keyed on an auto-generated UUID `id` via `sharedConfig/solrconfig.keygen.xml`. Create it with
+`./create_one.sh private_genome_metadata static`; it is not part of `initialize_cloud.sh`.
+
 ## May, 2026
 
 We are change genome.segment to multivalue. This requires a dump and reindex. The load is going into collection
